@@ -1,0 +1,257 @@
+{
+  "rq1_1": {
+    "with_instructions": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2,
+      "followed_template": 10,
+      "syntactically_correct": 10,
+      "total_generated": 10
+    },
+    "without_instructions": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2,
+      "followed_template": 10,
+      "syntactically_correct": 10,
+      "total_generated": 10
+    }
+  },
+  "rq1_2": {
+    "pre_solved": 1,
+    "trans_solved": 1,
+    "post_solved": 1,
+    "all_partial_solved": 1,
+    "full_combiner_solved": 0,
+    "total_problems": 2,
+    "details": [
+      {
+        "problem": "fig4_nikj",
+        "pre_ok": false,
+        "trans_ok": false,
+        "post_ok": false,
+        "full_ok": false
+      },
+      {
+        "problem": "fig1_103",
+        "pre_ok": true,
+        "trans_ok": true,
+        "post_ok": true,
+        "full_ok": false
+      }
+    ]
+  },
+  "rq1_3": {
+    "S_semantic": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2
+    },
+    "S_syntactic": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2
+    }
+  },
+  "rq1_4": {
+    "EX_P": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2
+    },
+    "EX_N": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2
+    },
+    "EX_Mix": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2
+    }
+  },
+  "rq1_5": {
+    "instruction_only": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2,
+      "token_limit_exceeded": 0
+    },
+    "few_shot_only": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2,
+      "token_limit_exceeded": 0
+    },
+    "integrated": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2,
+      "token_limit_exceeded": 0
+    }
+  },
+  "rq2_1": {
+    "num_problems": 2,
+    "attempted_invariants": 4,
+    "successful_repairs": 2,
+    "success_rate_percent": 50.0,
+    "details": [
+      {
+        "problem": "fig4_nikj",
+        "failed_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "success": false,
+        "error_cause": "FAIL : {(\"LoopInvGen.Exceptions.Internal_Exn(\\\"Unsatisfied\\\")\")}",
+        "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))"
+      },
+      {
+        "problem": "fig4_nikj",
+        "failed_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "success": false,
+        "error_cause": "FAIL : {(\"LoopInvGen.Exceptions.Internal_Exn(\\\"Unsatisfied\\\")\")}",
+        "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))"
+      },
+      {
+        "problem": "fig1_103",
+        "failed_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "success": true,
+        "error_cause": "FAIL : {(\"LoopInvGen.Exceptions.Internal_Exn(\\\"Unsatisfied\\\")\")}",
+        "error_details": "Failed to satisfy the condition (=> (PreF x y) (InvF x y))"
+      },
+      {
+        "problem": "fig1_103",
+        "failed_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "success": true,
+        "error_cause": "FAIL : {(\"LoopInvGen.Exceptions.Internal_Exn(\\\"Unsatisfied\\\")\")}",
+        "error_details": "Failed to satisfy the condition (=> (PreF x y) (InvF x y))"
+      }
+    ]
+  },
+  "rq2_2": {
+    "num_problems": 2,
+    "attempted_invariants": 4,
+    "single_turn_successful_repairs": 2,
+    "single_turn_success_rate_percent": 50.0,
+    "multi_turn_successful_repairs": 2,
+    "multi_turn_success_rate_percent": 50.0,
+    "trajectories": [
+      {
+        "problem": "fig4_nikj",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "fig4_nikj",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "fig1_103",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "fig1_103",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      }
+    ]
+  }
+}

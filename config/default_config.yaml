@@ -1,0 +1,58 @@
+# Configuration for LLM Loop Invariant Generation and Fixing Framework
+
+llm:
+  # Provider options: "openai" (OpenAI/vLLM/custom server), "ollama", "huggingface", "mock"
+  provider: "openai"
+  model: "bharat-ai"
+  
+  # OpenAI-compatible API settings (e.g. for custom server at http://localhost:3000/v1)
+  openai:
+    base_url: "http://localhost:3000/v1"
+    api_key: "EMPTY"
+    timeout: 120
+
+  # Ollama connection settings (if using Ollama)
+  ollama:
+    host: "http://localhost:11434"
+    timeout: 120
+
+  # HuggingFace Direct GPU settings (optimized for NVIDIA RTX A5000 24GB VRAM)
+  huggingface:
+    model_id: "Qwen/Qwen2.5-32B-Instruct" # or local path / qwen variant
+    device_map: "auto"
+    torch_dtype: "bfloat16" # or float16
+    load_in_4bit: true      # 4-bit quantization fits comfortably in 24GB VRAM
+    load_in_8bit: false
+    trust_remote_code: true
+    max_new_tokens: 1024
+
+  # Generation hyperparameters
+  generation:
+    temperature: 0.7
+    top_p: 0.95
+    max_tokens: 2048
+    # k-sample evaluations matching paper (k = 10, 30, 50)
+    default_k: 50
+
+# Similarity settings for RQ1.3 & RQ1.4
+similarity:
+  # Sentence Transformer model for S_semantic
+  semantic_model: "all-MiniLM-L6-v2"
+  # Number of few-shot examples (n=2 as in paper)
+  few_shot_n: 2
+
+# Verifier settings
+verifier:
+  solver: "z3"
+  timeout_ms: 10000
+
+# Benchmark settings
+benchmarks:
+  directory: "benchmarks"
+  subset_size: 210
+  random_seed: 42
+
+# Experiment outputs
+output:
+  results_dir: "results"
+  logs_dir: "logs"

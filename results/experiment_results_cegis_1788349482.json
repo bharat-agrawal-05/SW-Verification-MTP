@@ -1,0 +1,93 @@
+{
+  "enhanced_cegis": {
+    "num_problems": 2,
+    "total_solved": 0,
+    "total_success_rate_percent": 0.0,
+    "turn_solved_counts": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "cumulative_solved_counts": {
+      "1": 0,
+      "2": 0,
+      "3": 0
+    },
+    "cumulative_success_rates": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0
+    },
+    "cycles_prevented": 4,
+    "trajectories": [
+      {
+        "problem": "loopinvgen_nikj_25",
+        "solved": false,
+        "solved_at_turn": null,
+        "total_turns": 3,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "is_valid": false,
+            "failed_rule": "R1",
+            "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))",
+            "counterexample_str": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'"
+          },
+          {
+            "turn": 2,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1",
+            "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))",
+            "counterexample_str": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'"
+          },
+          {
+            "turn": 3,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1",
+            "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))",
+            "counterexample_str": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_02",
+        "solved": false,
+        "solved_at_turn": null,
+        "total_turns": 3,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "is_valid": false,
+            "failed_rule": "R1",
+            "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))",
+            "counterexample_str": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'"
+          },
+          {
+            "turn": 2,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1",
+            "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))",
+            "counterexample_str": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'"
+          },
+          {
+            "turn": 3,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (or (and (= x 1) (< y 1024)) (and (= x 0) (<= y 1024))))",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R1",
+            "error_details": "Failed to satisfy the condition (=> (PreF n i k j) (InvF n i k j))",
+            "counterexample_str": "SMT error in R1: b'(error \"line 12 column 68: unknown constant x\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "rq1_5": {
+    "instruction_only": {
+      "k10": 7,
+      "k30": 7,
+      "k50": 7,
+      "total": 8,
+      "token_limit_exceeded": 0
+    },
+    "few_shot_only": {
+      "k10": 5,
+      "k30": 5,
+      "k50": 5,
+      "total": 8,
+      "token_limit_exceeded": 0
+    },
+    "integrated": {
+      "k10": 7,
+      "k30": 7,
+      "k50": 7,
+      "total": 8,
+      "token_limit_exceeded": 0
+    }
+  }
+}

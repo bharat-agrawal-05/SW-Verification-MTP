@@ -1,0 +1,22 @@
+{
+  "rq1_1": {
+    "with_instructions": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2,
+      "followed_template": 4,
+      "syntactically_correct": 4,
+      "total_generated": 4
+    },
+    "without_instructions": {
+      "k10": 1,
+      "k30": 1,
+      "k50": 1,
+      "total": 2,
+      "followed_template": 4,
+      "syntactically_correct": 4,
+      "total_generated": 4
+    }
+  }
+}
