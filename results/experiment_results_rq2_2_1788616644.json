@@ -1,0 +1,2774 @@
+{
+  "rq2_2": {
+    "num_problems": 50,
+    "attempted_invariants": 100,
+    "single_turn_successful_repairs": 32,
+    "single_turn_success_rate_percent": 32.0,
+    "multi_turn_successful_repairs": 55,
+    "multi_turn_success_rate_percent": 55.00000000000001,
+    "trajectories": [
+      {
+        "problem": "loopinvgen_nikj_25",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool true)",
+            "counterexample_given": "n = 40, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i)\n       (<= i n)\n       (<= 0 k)\n       (<= k n)\n       (<= 0 j)\n       (<= j n)))",
+            "counterexample_given": "n = 0, i = 0, k = 0, j = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i)\n       (<= i n)\n       (<= 0 k)\n       (<= k n)\n       (<= 0 j)\n       (<= j n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i)\n       (<= i n)\n       (<= 0 k)\n       (<= k (+ n 1))\n       (<= 0 j)\n       (<= j (+ n 1))))",
+            "counterexample_given": "n = 1, i = 0, k = 1, j = 1, n! = 1, i! = 1, k! = 2, j! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_25",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)))",
+            "counterexample_given": "n = 40, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)\n       (= k i)\n       (= j i)))",
+            "counterexample_given": "n = 0, i = 0, k = 1, j = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_02",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i) (<= i n)\n       (<= 0 k) (<= k n)\n       (<= 0 j) (<= j n)))",
+            "counterexample_given": "n = 17, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i) (<= i n)\n       (<= 0 k) (<= k n)\n       (<= 0 j) (<= j n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i)\n       (<= i n)\n       (<= 0 k)\n       (<= 0 j)))",
+            "counterexample_given": "n = 1, i = 0, k = 1, j = 1, n! = 1, i! = 1, k! = 2, j! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i)\n       (<= i n)\n       (<= 0 k)\n       (<= 0 j)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool ; Error querying endpoint http://localhost:3000/v1/chat/completions: HTTPConnectionPool(host='localhost', port=3000): Read timed out. (read timeout=120))",
+            "counterexample_given": "n = 1, i = 1, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_02",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)\n       (= (* 2 k) (* i (+ i 1)))\n       (= (* 6 j) (* i (+ i 1) (+ i 2)))))",
+            "counterexample_given": "n = 17, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)\n       (= (* 2 k) (* i (+ i 1)))\n       (= (* 6 j) (* i (+ i 1) (+ i 2)))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)\n       (= (* 2 k) (* i (- i 1)))\n       (= (* 6 j) (* i (- i 1) (- i 2)))))",
+            "counterexample_given": "n = 6, i = 1, k = 1, j = 1, n! = 6, i! = 2, k! = 2, j! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)\n       (= (* 2 k) (* i (- i 1)))\n       (= (* 6 j) (* i (- i 1) (- i 2)))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= n 0)\n       (>= i 0)\n       (<= i n)))",
+            "counterexample_given": "n = 14, i = 3, k = 3, j = 1, n! = 14, i! = 4, k! = 4, j! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_11",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool true)",
+            "counterexample_given": "x = 1, y = 1, k = 55",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (PostF x y k))",
+            "counterexample_given": "x = 0, y = 0, k = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (PostF x y k))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (>= y 0) (>= k 0)))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 10 column 60: unknown constant PostF (Int Int Int) \")\\n(error \"line 11 column 42: unknown constant InvF (Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_11",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool true)",
+            "counterexample_given": "x = 1, y = 1, k = 55",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (PostF x y k))",
+            "counterexample_given": "x = 0, y = 0, k = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (PostF x y k))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (<= x k) (<= y k)))\n(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (<= x k) (<= y k) (>= x 0) (>= y 0)))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 10 column 60: unknown constant PostF (Int Int Int) \")\\n(error \"line 11 column 42: unknown constant InvF (Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_12",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (>= x 1))",
+            "counterexample_given": "x = 1, y = 1, k = 60",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (>= x 1))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 1, y = -1, k = 2, x! = 0, y! = -1, k! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (>= y 0) (= x y)))",
+            "counterexample_given": "x = 0, y = 0, k = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_12",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (= x y)))",
+            "counterexample_given": "x = 1, y = 1, k = 60",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (= x y)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (>= x y) (<= x k) (<= y k)))",
+            "counterexample_given": "x = 1, y = 1, k = 2, x! = 2, y! = 1, k! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (>= x y) (<= x k) (<= y k)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (>= x y)))",
+            "counterexample_given": "x = 2, y = 2, k = 3, x! = 4, y! = 2, k! = 3",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_03",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (= (+ x y) 60)))",
+            "counterexample_given": "x = 60, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_03",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (= (+ x y) 60) (>= x 0)))",
+            "counterexample_given": "x = 60, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_09",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_09",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_19",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_19",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_20",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (>= y 0) (>= k 0)))",
+            "counterexample_given": "x = 1, y = 1, k = 100",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (>= y 0) (>= k 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (> y 0) (>= k 0)))",
+            "counterexample_given": "x = 0, y = 0, k = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 0) (> y 0) (>= k 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (> x 0) (> y 0) (>= k 0)))",
+            "counterexample_given": "x = 0, y = 1, k = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_20",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (= x y)))",
+            "counterexample_given": "x = 1, y = 1, k = 100",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (= x y)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= x y)))",
+            "counterexample_given": "x = 1, y = 1, k = 2, x! = 2, y! = 1, k! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= x y)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (>= x 0))",
+            "counterexample_given": "x = 1, y = -1, k = 2, x! = 0, y! = -1, k! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_28",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool true)",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (< x 1) (< y 2800)))",
+            "counterexample_given": "x = 1, y = 2800",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_28",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1)\n       (>= y 0)\n       (= x (+ y 1))))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1)\n       (>= y 0)\n       (= x (+ y 1))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0)\n       (<= x 769)\n       (>= y 0)))",
+            "counterexample_given": "x = 769, y = 768, x! = 0, y! = 769",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0)\n       (<= x 769)\n       (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0)\n       (<= x 769)\n       (>= y 0)\n       (<= y x)))",
+            "counterexample_given": "x = 1, y = 2800",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_19",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool true)",
+            "counterexample_given": "x = 380, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= x y))",
+            "counterexample_given": "x = 0, y = 381",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= x y))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (>= x y)))",
+            "counterexample_given": "x = 1, y = 0, x! = 0, y! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_19",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 380, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (> (+ x y) 0)))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (> (+ x y) 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (> x 0) (>= y 0)))",
+            "counterexample_given": "x = 0, y = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_28",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= (* 2 s) (* i (- i 1)))\n       (<= 0 i)\n       (<= i n)))",
+            "counterexample_given": "i = 0, s = 0, n = 38",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= (* 2 s) (* i (- i 1)))\n       (<= 0 i)\n       (<= i n)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= (* 2 s) (* i (+ i 1)))\n       (<= 0 i)\n       (<= i n)))",
+            "counterexample_given": "i = 0, s = 0, n = 7, i! = 1, s! = 1, n! = 7",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= (* 2 s) (* i (+ i 1)))\n       (<= 0 i)\n       (<= i n)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= (* 2 s) (* i (+ i (- 1)))) (<= 0 i) (<= i n)))",
+            "counterexample_given": "i = 3, s = 6, n = 6, i! = 4, s! = 7, n! = 6",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_28",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (>= n 0)\n    (>= i 0)\n    (<= i n)\n    (= (* 2 s) (* i (- i 1)))))",
+            "counterexample_given": "i = 0, s = 0, n = 38",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (>= n 0)\n    (>= i 0)\n    (<= i n)\n    (= (* 2 s) (* i (- i 1)))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (>= n 0)\n    (>= i 0)\n    (<= i n)\n    (= s i)))",
+            "counterexample_given": "i = 3, s = 3, n = 12, i! = 4, s! = 4, n! = 12",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_23",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool true)",
+            "counterexample_given": "i = 1, j = 230",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (PostF i j))",
+            "counterexample_given": "i = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (PostF i j))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i j)))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 8 column 50: unknown constant PostF (Int Int) \")\\n(error \"line 9 column 38: unknown constant InvF (Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_23",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= j 230) (>= j 0)))",
+            "counterexample_given": "i = 1, j = 230",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= j 230) (>= j 0)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i 230) (>= j 0) (<= j 230)))",
+            "counterexample_given": "i = 0, j = 0, i! = 2, j! = -1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i 230) (>= j 0) (<= j 230)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 21) (>= j 6)))",
+            "counterexample_given": "i = 0, j = 0, i! = 2, j! = -1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_22",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= x (+ y 1))))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= x (+ y 1))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= y 0))",
+            "counterexample_given": "x = 1897, y = 1896, x! = 0, y! = 1897",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= y 0))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= (+ x y) 2201)))",
+            "counterexample_given": "x = 1, y = 2200",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_22",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x (+ y 1)))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x (+ y 1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = -2, y = -3, x! = 0, y! = -2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (= x y) (>= x 0) (<= x 22)))",
+            "counterexample_given": "x = 1, y = 2200",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_27",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (<= i n))",
+            "counterexample_given": "n = 42, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (<= i n))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 1 n) (<= 0 i) (<= i n)))",
+            "counterexample_given": "n = 0, i = 0, k = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 1 n) (<= 0 i) (<= i n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 1 n) (<= 0 i) (<= i n) (= k j)))",
+            "counterexample_given": "n = 1, i = 1, k = 2, j = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_27",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i) (<= i n)\n       (<= 0 k) (<= k n)\n       (<= 0 j) (<= j n)))",
+            "counterexample_given": "n = 42, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i) (<= i n)\n       (<= 0 k) (<= k n)\n       (<= 0 j) (<= j n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i) (<= i (+ n 1))\n       (<= 0 k) (<= k (+ n 1))\n       (<= 0 j) (<= j (+ n 1))))",
+            "counterexample_given": "n = 1, i = 0, k = 1, j = 1, n! = 1, i! = 1, k! = 2, j! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i) (<= i (+ n 1))\n       (<= 0 k) (<= k (+ n 1))\n       (<= 0 j) (<= j (+ n 1))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 n)\n       (<= 0 i) (<= i (+ n 1))\n       (<= 0 k) (<= k (+ n 2))\n       (<= 0 j) (<= j (+ n 2))))",
+            "counterexample_given": "n = 1, i = 0, k = 2, j = 2, n! = 1, i! = 1, k! = 3, j! = 3",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_01",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= i j) (= i k) (>= i 0) (or (<= i n) (= i 0))))",
+            "counterexample_given": "n = 16, i = 0, k = 0, j = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_01",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= i j) (= i k) (>= i 0) (or (<= i n) (<= n 0))))",
+            "counterexample_given": "n = 16, i = 0, k = 0, j = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_12",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s (div (* i (- i 1)) 2))))",
+            "counterexample_given": "i = 0, s = 0, n = 22",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s (div (* i (- i 1)) 2))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s i)))",
+            "counterexample_given": "i = 3, s = 3, n = 4, i! = 4, s! = 4, n! = 4",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_12",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (<= 0 i)\n    (<= i n)\n    (= (* 2 s) (* i (- i 1)))\n  ))",
+            "counterexample_given": "i = 0, s = 0, n = 22",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (<= 0 i)\n    (<= i n)\n    (= (* 2 s) (* i (- i 1)))\n  ))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (= s (- i 1))\n    (<= 1 i)\n    (or (<= i (+ n 1)) (= i 1))\n  ))",
+            "counterexample_given": "i = 3, s = 3, n = 6, i! = 4, s! = 4, n! = 6",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (= s (- i 1))\n    (<= 1 i)\n    (or (<= i (+ n 1)) (= i 1))\n  ))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and\n    (= s i)\n    (<= 0 i)\n    (or (<= i n) (= i 0))\n  ))",
+            "counterexample_given": "i = 0, s = 0, n = 22",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_10",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i j) 101)\n       (<= i 100)))",
+            "counterexample_given": "i = 1, j = 100",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i j) 101)\n       (<= i 100)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 202)\n       (<= i 100)))",
+            "counterexample_given": "i = 50, j = 51, i! = 52, j! = 50",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 202)\n       (<= i 100)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 201)\n       (<= i 100)))",
+            "counterexample_given": "i = 1, j = 100",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_10",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool true)",
+            "counterexample_given": "i = 1, j = 100",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (PostF i j))",
+            "counterexample_given": "i = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (PostF i j))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool true)",
+            "counterexample_given": "SMT error in R1: b'(error \"line 8 column 50: unknown constant PostF (Int Int) \")\\n(error \"line 9 column 38: unknown constant InvF (Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_17",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= k 0) (= j 0)))",
+            "counterexample_given": "n = 32, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= k 0) (= j 0)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (>= i n) (>= j 0) (>= j i) (= k 0)))",
+            "counterexample_given": "n = 1, i = 0, k = 0, j = 0, n! = 1, i! = 1, k! = 1, j! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (>= i n) (>= j 0) (>= j i) (= k 0)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (>= j 0) (>= j i) (= k 0)))",
+            "counterexample_given": "n = 32, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_17",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n)))",
+            "counterexample_given": "n = 32, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (<= i k)))",
+            "counterexample_given": "n = 0, i = 0, k = 0, j = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (<= i k)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (<= i k) (<= k n) (>= k 0)))",
+            "counterexample_given": "n = 0, i = 0, k = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_20",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 401) (<= (- i j) 3)))",
+            "counterexample_given": "i = 1, j = 200",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_20",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j 0)))",
+            "counterexample_given": "i = 1, j = 200",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j 0)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j i)))",
+            "counterexample_given": "i = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j i)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (>= i 1))",
+            "counterexample_given": "i = 1, j = 1, i! = 3, j! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_30",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s i) (>= i 0) (<= i n)))",
+            "counterexample_given": "i = 0, s = 0, n = 40",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_30",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 30 i)) (>= i 0) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 40",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 30 i)) (>= i 0) (or (<= i n) (= i 0))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s i) (>= i 0) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 1, s = 30, n = 2, i! = 2, s! = 31, n! = 2",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_17",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 340, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= x (+ (* 2 y) (* y y)))))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= x (+ (* 2 y) (* y y)))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (<= x (+ (* 2 y) (* y y)))))",
+            "counterexample_given": "x = 340, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_17",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool true)",
+            "counterexample_given": "x = 340, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 341",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (= (+ x (* 17 y)) 340) (>= x 0)))",
+            "counterexample_given": "x = 340, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_30",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (= (+ x y) 600)))",
+            "counterexample_given": "x = 600, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_30",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= (+ x y) 600))",
+            "counterexample_given": "x = 600, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_08",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (= s (* 8 i)) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 18",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (= s (* 8 i)) (or (<= i n) (= i 0))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (= s i) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 1, s = 8, n = 2, i! = 2, s! = 9, n! = 2",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_08",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 2 i)) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 18",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 2 i)) (or (<= i n) (= i 0))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (= s (* 2 i)) (<= i n)))",
+            "counterexample_given": "i = -1, s = -2, n = 0, i! = 0, s! = -1, n! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (= s (* 2 i)) (<= i n)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s (* 2 (- i 1) i)) (=> (= i 0) (= s 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 1, i! = 1, s! = 1, n! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_24",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= i j) (= j k) (>= i 0)))",
+            "counterexample_given": "n = 39, i = 0, k = 0, j = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_24",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (= k i) (= j (* 2 i)) (or (<= i n) (= i 0))))",
+            "counterexample_given": "n = 39, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (= k i) (= j (* 2 i)) (or (<= i n) (= i 0))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (= k i) (= j i) (or (<= i n) (= i 0))))",
+            "counterexample_given": "n = 2, i = 1, k = 1, j = 2, n! = 2, i! = 2, k! = 2, j! = 3",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_24",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 480, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (> y 0)))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (> y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 480, y = 0",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_24",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (= (+ x y) 480)))",
+            "counterexample_given": "x = 480, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_11",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 221) (>= j 73)))",
+            "counterexample_given": "i = 1, j = 110",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_11",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ (* 2 j) i) 221) (>= j 73)))",
+            "counterexample_given": "i = 1, j = 110",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_02",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (<= x k) (<= y k)))",
+            "counterexample_given": "x = 1, y = 1, k = 10",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (<= x k) (<= y k)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (<= y k)))",
+            "counterexample_given": "x = 1, y = 2, k = 2, x! = 3, y! = 2, k! = 2",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_02",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1) (>= k 1)))",
+            "counterexample_given": "x = 1, y = 1, k = 10",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_05",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 i) (<= i n) (= j (* 2 i)) (= k i)))",
+            "counterexample_given": "n = 20, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 i) (<= i n) (= j (* 2 i)) (= k i)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 i) (<= i n) (= j i) (= k i)))",
+            "counterexample_given": "n = 1, i = 0, k = 0, j = 0, n! = 1, i! = 1, k! = 1, j! = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_05",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 i) (<= i n) (= j (+ i i))))",
+            "counterexample_given": "n = 20, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 i) (<= i n) (= j (+ i i))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= 0 i) (<= i n) (= j i) (= k i)))",
+            "counterexample_given": "n = 1, i = 0, k = -1, j = 0, n! = 1, i! = 1, k! = 0, j! = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_26",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i j) (<= i 1)))",
+            "counterexample_given": "i = 1, j = 260",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i j) (<= i 1)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i j) (< i j)))",
+            "counterexample_given": "i = 1, j = 1, i! = 3, j! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i j) (< i j)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 0) (<= i j) (<= j 0)))",
+            "counterexample_given": "i = 0, j = 1, i! = 2, j! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_26",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i (* 2 j)) 521))",
+            "counterexample_given": "i = 1, j = 260",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_09",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 9 i)) (>= i 0) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 19",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 9 i)) (>= i 0) (or (<= i n) (= i 0))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0)\n       (<= i n)\n       (>= s (* 9 (- i 1)))\n       (<= s (* 9 i))))",
+            "counterexample_given": "i = 1, s = 9, n = 2, i! = 2, s! = 10, n! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0)\n       (<= i n)\n       (>= s (* 9 (- i 1)))\n       (<= s (* 9 i))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0)\n       (<= i n)\n       (>= s (- i 10))\n       (<= s (* 9 i))))",
+            "counterexample_given": "i = 0, s = -2, n = 1, i! = 1, s! = -1, n! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_09",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s (div (* i (+ i 1)) 2))))",
+            "counterexample_given": "i = 0, s = 0, n = 19",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s (div (* i (+ i 1)) 2))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s i)))",
+            "counterexample_given": "i = 1, s = 1, n = 2, i! = 2, s! = 2, n! = 2",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_11",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (= (+ x y) 220)))",
+            "counterexample_given": "x = 220, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_11",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (= (+ x y) 220)))",
+            "counterexample_given": "x = 220, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_05",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x (+ y 1)))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x (+ y 1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= x (+ y 1))))",
+            "counterexample_given": "x = -2, y = -3, x! = 0, y! = -2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= x (+ y 1))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 1)))",
+            "counterexample_given": "x = 1, y = 0, x! = 0, y! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_05",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= x 1))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= x 1))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (= (+ x y) 500)))",
+            "counterexample_given": "x = 1, y = 499, x! = 0, y! = 500",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (= (+ x y) 500)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (<= x 501) (= x (+ y 1))))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_06",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (forall ((k Int)) (=> (and (>= k 0) (<= k i)) (>= s (* 2 k))))))",
+            "counterexample_given": "i = 0, s = 0, n = 16",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (forall ((k Int)) (=> (and (>= k 0) (<= k i)) (>= s (* 2 k))))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i)))",
+            "counterexample_given": "i = 0, s = 0, n = 1, i! = 1, s! = 1, n! = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_06",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 2 i)) (>= i 0) (or (<= i (+ n 1)) (<= i 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 16",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* 2 i)) (>= i 0) (or (<= i (+ n 1)) (<= i 0))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (- i 1)) (>= i 1) (or (<= i (+ n 1)) (<= i 1))))",
+            "counterexample_given": "i = 1, s = 2, n = 2, i! = 2, s! = 3, n! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (- i 1)) (>= i 1) (or (<= i (+ n 1)) (<= i 1))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i (+ n 1)) (or (and (= i 0) (= s 0)) (and (>= i 1) (= s (- i 1))))))",
+            "counterexample_given": "i = 0, s = 0, n = 16",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_06",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (<= j 60) (= (+ i j) 61)))",
+            "counterexample_given": "i = 1, j = 60",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (<= j 60) (= (+ i j) 61)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (<= j 60) (= (+ i (* 2 j)) 121)))",
+            "counterexample_given": "i = 30, j = 31, i! = 32, j! = 30",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_06",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i j) 61))",
+            "counterexample_given": "i = 1, j = 60",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i j) 61))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i (* 2 j)) 61))",
+            "counterexample_given": "i = 30, j = 31, i! = 32, j! = 30",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i (* 2 j)) 61))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i j) 61))",
+            "counterexample_given": "i = 1, j = 60",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_27",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (= (+ x (* 27 y)) 540) (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 540, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (= (+ x (* 27 y)) 540) (>= x 0) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (= (+ x y) 540) (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 540, y = 0, x! = 539, y! = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_27",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (<= x 540) (>= y 0) (= (+ x y) 540)))",
+            "counterexample_given": "x = 540, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_27",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_27",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_12",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (>= k 0) (<= k n) (>= j 0) (<= j n)))",
+            "counterexample_given": "n = 27, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (>= k 0) (<= k n) (>= j 0) (<= j n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= i k) (= i j)))",
+            "counterexample_given": "n = 1, i = 0, k = 1, j = 1, n! = 1, i! = 1, k! = 2, j! = 2",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_12",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and\n    (= i 0)\n    (= k 0)\n    (= j 0)\n    (>= n 0)\n  ))",
+            "counterexample_given": "n = 27, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and\n    (= i 0)\n    (= k 0)\n    (= j 0)\n    (>= n 0)\n  ))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and\n    (= i j)\n    (= i k)\n    (>= i 0)\n    (<= i n)\n  ))",
+            "counterexample_given": "n = 1, i = 0, k = 0, j = 0, n! = 1, i! = 1, k! = 1, j! = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_07",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (>= i 1))",
+            "counterexample_given": "i = 1, j = 70",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (>= i 1))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (= j (- i 1))))",
+            "counterexample_given": "i = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (= j (- i 1))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (>= i 1))",
+            "counterexample_given": "i = 1, j = 70",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_07",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i j) 71))",
+            "counterexample_given": "i = 1, j = 70",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i j) 71))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i (* 2 j)) 0))",
+            "counterexample_given": "i = 35, j = 36, i! = 37, j! = 35",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i (* 2 j)) 0))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (>= i 1))",
+            "counterexample_given": "i = 1, j = 70",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_10",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= x 0))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (>= x 0))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (<= x y)))",
+            "counterexample_given": "x = 1, y = 1000",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (<= x y)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (<= x y)))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_10",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1) (<= y 1)))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1) (<= y 1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1) (<= y 1) (>= y (- x))))",
+            "counterexample_given": "x = 1, y = -1, x! = 0, y! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1) (<= y 1) (>= y (- x))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (<= y 1) (>= y (- x)) (>= y (- (+ x 1)))))",
+            "counterexample_given": "x = 1, y = -1, x! = 0, y! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_13",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (>= y 1)))",
+            "counterexample_given": "x = 1, y = 1, k = 65",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_13",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x y) (>= y 1)))",
+            "counterexample_given": "x = 1, y = 1, k = 65",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_15",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j 0) (= (+ i j) 151)))",
+            "counterexample_given": "i = 1, j = 150",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j 0) (= (+ i j) 151)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j 0) (<= (+ (* 2 j) i) 301) (>= (+ (* 2 j) i) 1)))",
+            "counterexample_given": "i = 3, j = 148, i! = 5, j! = 147",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (>= j 0) (<= (+ (* 2 j) i) 301) (>= (+ (* 2 j) i) 1)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ (* 2 j) i) 21) (>= j 6) (>= i 1)))",
+            "counterexample_given": "i = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_15",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 301) (>= j 100)))",
+            "counterexample_given": "i = 1, j = 150",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_13",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= i 1) (>= j 130) (= j (- 130 i))))",
+            "counterexample_given": "i = 1, j = 130",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= i 1) (>= j 130) (= j (- 130 i))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= i 1) (= j 130)))",
+            "counterexample_given": "i = 1, j = 130",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= i 1) (= j 130)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ i (* 2 j)) 261))",
+            "counterexample_given": "i = 1, j = 130, i! = 3, j! = 129",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_13",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and\n    (>= i 0)\n    (>= j 0)\n    (<= i j)\n    (>= j 1)\n  ))",
+            "counterexample_given": "i = 1, j = 130",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and\n    (>= i 0)\n    (>= j 0)\n    (<= i j)\n    (>= j 1)\n  ))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and\n    (>= i 0)\n    (>= j 0)\n    (<= i j)\n  ))",
+            "counterexample_given": "i = 0, j = 1, i! = 2, j! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and\n    (>= i 0)\n    (>= j 0)\n    (<= i j)\n  ))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and\n    (>= i 0)\n    (>= j 0)\n    (<= i j)\n    (<= j (* 2 i))\n  ))",
+            "counterexample_given": "i = 0, j = 0, i! = 2, j! = -1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_11",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (+ i i)) (>= i 0) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 21",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (+ i i)) (>= i 0) (or (<= i n) (= i 0))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s i) (>= i 0) (or (<= i n) (= i 0))))",
+            "counterexample_given": "i = 1, s = 2, n = 2, i! = 2, s! = 3, n! = 2",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_11",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s (div (* i (- i 1)) 2))))",
+            "counterexample_given": "i = 0, s = 0, n = 21",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s (div (* i (- i 1)) 2))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (<= 0 s) (<= s (div (* i (+ i 1)) 2))))",
+            "counterexample_given": "i = 3, s = 3, n = 4, i! = 4, s! = 4, n! = 4",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (<= 0 s) (<= s (div (* i (+ i 1)) 2))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (<= 0 i) (<= i n) (= s (div (* i (+ i 1)) 2))))",
+            "counterexample_given": "i = 1, s = 0, n = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_30",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_30",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_14",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= i n) (or (< i n) (and (= k i) (= j i)))))",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= i n) (or (< i n) (and (= k i) (= j i)))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= i n)\n       (or (< i n)\n           (and (= k n) (= j (+ n 1))))))",
+            "counterexample_given": "n = 0, i = -1, k = -1, j = 0, n! = 0, i! = 0, k! = 0, j! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= i n)\n       (or (< i n)\n           (and (= k n) (= j (+ n 1))))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= i n)\n       (or (< i n)\n           (and (= k n) (= j (+ n 1))))))",
+            "counterexample_given": "n = 0, i = -1, k = 0, j = 0, n! = 0, i! = 0, k! = 1, j! = 1",
+            "is_valid": false,
+            "is_cycle": true,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= i n)\n       (or (< i n)\n           (and (= k n) (= j (+ n 1))))))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (<= i n) \n       (or (< i n) \n           (and (>= k n) (>= j n)))))",
+            "counterexample_given": "n = 0, i = -1, k = 0, j = 0, n! = 0, i! = 0, k! = 1, j! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_14",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool <code>)",
+            "counterexample_given": "n = 29, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool <code>)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= (+ i j) (+ n (* 2 k))) (>= k 0) (<= k n) (>= i 0) (>= j 0) (<= i n) (<= j n)))",
+            "counterexample_given": "SMT error in R1: b'(error \"line 12 column 56: unknown constant <code>\")\\n(error \"line 13 column 46: unknown constant InvF (Int Int Int Int) \")\\n'",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= (+ i j) (+ n (* 2 k))) (>= k 0) (<= k n) (>= i 0) (>= j 0) (<= i n) (<= j n)))",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (= (+ i j) k) (>= k 0) (<= k n) (>= i 0) (>= j 0) (<= i n) (<= j n)))",
+            "counterexample_given": "n = 29, i = 0, k = 0, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_08",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_08",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_14",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (= j (* 140 i))))",
+            "counterexample_given": "i = 1, j = 140",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (= j (* 140 i))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (>= i 1))",
+            "counterexample_given": "i = 1, j = 140, i! = 3, j! = 139",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (>= i 1))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i (* 2 j)) 21) (>= j 6)))",
+            "counterexample_given": "i = 1, j = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_14",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i j) 141)\n       (<= i 71)\n       (>= i 1)))",
+            "counterexample_given": "i = 1, j = 140",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (= (+ i j) 141)\n       (<= i 71)\n       (>= i 1)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (<= i 72) (= (+ i j) 141)))",
+            "counterexample_given": "i = 70, j = 71, i! = 72, j! = 70",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (<= i 72) (= (+ i j) 141)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int)) Bool (and (>= i 1) (<= i 9) (>= j 6) (= (+ i (* 2 j)) 21)))",
+            "counterexample_given": "i = 70, j = 71, i! = 72, j! = 70",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_04",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= x (+ y 1))))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= x (+ y 1))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= (+ x y) 1)))",
+            "counterexample_given": "x = 1, y = 0, x! = 0, y! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= (+ x y) 1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= y 0) (= x 0)))",
+            "counterexample_given": "x = 0, y = 1, x! = 0, y! = 2",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_04",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1) (>= y 0)))",
+            "counterexample_given": "x = 1, y = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 1) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 1, y = 0, x! = 0, y! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= x y)))",
+            "counterexample_given": "x = 1, y = 400",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_25",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* i (+ i 1) (/ n 2))) (= n 35) (>= i 0) (<= i n)))",
+            "counterexample_given": "i = 0, s = 0, n = 35",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s (* i (+ i 1) (/ n 2))) (= n 35) (>= i 0) (<= i n)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s i) (>= i 0) (<= i n)))",
+            "counterexample_given": "i = 6, s = 735, n = 35, i! = 7, s! = 736, n! = 35",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_25",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (>= s 0) (>= n 0)))",
+            "counterexample_given": "i = 0, s = 0, n = 35",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (>= s 0) (>= n 0)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (>= s 0) (>= n 0) (>= s i)))",
+            "counterexample_given": "i = 0, s = 1, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (>= s 0) (>= n 0) (>= s i)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (>= s 0) (>= n 0) (>= s (* i i))))",
+            "counterexample_given": "i = 0, s = 1, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_29",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s i) (>= i 0) (<= i n)))",
+            "counterexample_given": "i = 0, s = 0, n = 39",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_29",
+        "initial_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (= s i) (>= i 0) (or (<= i n) (<= n 0))))",
+            "counterexample_given": "i = 0, s = 0, n = 39",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      }
+    ]
+  }
+}
