@@ -1,6 +1,6 @@
 """RQ2.2 Experiment: Invariant Repair Using Concrete Counterexample Values & Multi-turn Trajectory Tracking (Table X, Fig 12)."""
 
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any
 from tqdm import tqdm
 from core.problem import Problem
 from core.extractor import InvariantExtractor
@@ -26,7 +26,7 @@ def run_rq2_2(
     print(f"\n[RQ2.2] Running Invariant Repair using Counterexample Models on {len(problems)} problems...")
 
     for prob in tqdm(problems, desc="RQ2.2 (Counterexample Repair)"):
-        # 1. Collect initial incorrect invariants
+        # Collect initial incorrect invariants
         prompt_gen = PromptBuilder.build_rq1_1_prompt(prob, with_instructions=True)
         initial_responses = llm.generate(prompt_gen, n_samples=max(5, n_incorrect_per_problem * 2), temperature=temperature)
 
@@ -47,7 +47,7 @@ def run_rq2_2(
             while len(incorrect_invariants) < n_incorrect_per_problem:
                 incorrect_invariants.append((fallback_inv, v_res))
 
-        # 2. Repair loop for each incorrect invariant
+        # Repair loop for each incorrect invariant
         for failed_inv, init_v_res in incorrect_invariants:
             total_attempted += 1
             current_inv = failed_inv
@@ -57,7 +57,7 @@ def run_rq2_2(
 
             success = False
             for turn in range(1, max_repair_turns + 1):
-                ce_vals = current_v_res.counterexample_str or "k = 0, n = -1, i = 0, j = 0"
+                ce_vals = current_v_res.counterexample_str or "N/A"
                 details = current_v_res.error_details or "Failed to satisfy condition"
 
                 repair_prompt = PromptBuilder.build_rq2_2_repair_prompt(

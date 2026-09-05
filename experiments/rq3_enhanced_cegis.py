@@ -53,7 +53,7 @@ def run_enhanced_cegis(
             "is_valid": v_res1.is_valid,
             "failed_rule": v_res1.failed_rule,
             "error_details": v_res1.error_details,
-            "counterexample_str": v_res1.counterexample_str or "k = 0, n = -1, i = 0"
+            "counterexample_str": v_res1.counterexample_str or "N/A"
         })
 
         if v_res1.is_valid:
@@ -76,7 +76,22 @@ def run_enhanced_cegis(
 
                 is_cycle = cand in visited_invariants
                 if is_cycle:
-                    total_cycles_prevented += 1
+                    # Active Cycle Prevention: re-prompt with explicit tabu warning and higher temperature to break cycle
+                    max_cycle_retries = 2
+                    for retry in range(1, max_cycle_retries + 1):
+                        retry_temp = min(1.0, temperature + 0.15 * retry)
+                        retry_prompt = (
+                            f"{feedback_prompt}\n\n"
+                            f"CRITICAL REMINDER: The invariant `{cand}` was ALREADY attempted and failed. "
+                            f"Do NOT re-submit `{cand}`. You MUST synthesize a strictly different, novel invariant."
+                        )
+                        retry_resp = llm.generate(retry_prompt, n_samples=1, temperature=retry_temp)[0]
+                        new_cand = InvariantExtractor.extract_and_normalize(retry_resp, prob)
+                        if new_cand not in visited_invariants:
+                            cand = new_cand
+                            is_cycle = False
+                            total_cycles_prevented += 1
+                            break
                 visited_invariants.add(cand)
 
                 v_res = verifier.verify(prob, cand)

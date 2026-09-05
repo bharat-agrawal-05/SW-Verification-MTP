@@ -24,7 +24,7 @@ def run_rq2_1(
     print(f"\n[RQ2.1] Running Invariant Repair using Verifier Error Feedback on {len(problems)} problems...")
 
     for prob in tqdm(problems, desc="RQ2.1 (Error Repair)"):
-        # 1. Collect initial candidates to find incorrect ones
+        # Collect initial candidates to find incorrect ones
         prompt_gen = PromptBuilder.build_rq1_1_prompt(prob, with_instructions=True)
         initial_responses = llm.generate(prompt_gen, n_samples=max(5, n_incorrect_per_problem * 2), temperature=temperature)
 
@@ -49,7 +49,7 @@ def run_rq2_1(
             while len(incorrect_invariants) < n_incorrect_per_problem:
                 incorrect_invariants.append((fallback_inv, cause, details))
 
-        # 2. Attempt repair for each incorrect invariant
+        # Attempt repair for each incorrect invariant
         for failed_inv, cause, details in incorrect_invariants:
             total_attempted += 1
             repair_prompt = PromptBuilder.build_rq2_1_repair_prompt(

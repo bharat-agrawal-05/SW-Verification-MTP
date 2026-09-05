@@ -31,7 +31,7 @@ def run_rq1_2(
     print(f"\n[RQ1.2] Running problem partitioning evaluation on {len(problems)} problems...")
 
     for prob in tqdm(problems, desc="RQ1.2 (Partitioning)"):
-        # 1. Solve P_pre (R1)
+        # Solve P_pre (R1)
         prompt_pre = PromptBuilder.build_rq1_2_partial_prompt(prob, condition="pre")
         resp_pre = llm.generate(prompt_pre, n_samples=k_partial, temperature=temperature)
         pre_cands: List[Tuple[str, bool]] = []
@@ -43,7 +43,7 @@ def run_rq1_2(
             if ok:
                 pre_ok = True
 
-        # 2. Solve P_trans (R2)
+        # Solve P_trans (R2)
         prompt_trans = PromptBuilder.build_rq1_2_partial_prompt(prob, condition="trans")
         resp_trans = llm.generate(prompt_trans, n_samples=k_partial, temperature=temperature)
         trans_cands: List[Tuple[str, bool]] = []
@@ -55,7 +55,7 @@ def run_rq1_2(
             if ok:
                 trans_ok = True
 
-        # 3. Solve P_post (R3)
+        # Solve P_post (R3)
         prompt_post = PromptBuilder.build_rq1_2_partial_prompt(prob, condition="post")
         resp_post = llm.generate(prompt_post, n_samples=k_partial, temperature=temperature)
         post_cands: List[Tuple[str, bool]] = []
@@ -76,7 +76,7 @@ def run_rq1_2(
         if pre_ok and trans_ok and post_ok:
             results["all_partial_solved"] += 1
 
-        # 4. Solve P_full Combiner
+        # Solve P_full Combiner
         prompt_full = PromptBuilder.build_rq1_2_combiner_prompt(
             prob, pre_cands, trans_cands, post_cands
         )

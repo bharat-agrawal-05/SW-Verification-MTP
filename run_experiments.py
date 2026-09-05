@@ -7,7 +7,6 @@ Based on the paper:
 """
 
 import argparse
-import sys
 import yaml
 import os
 
