@@ -1,0 +1,825 @@
+{
+  "enhanced_cegis": {
+    "num_problems": 50,
+    "total_solved": 50,
+    "total_success_rate_percent": 100.0,
+    "turn_solved_counts": {
+      "1": 50,
+      "2": 0,
+      "3": 0
+    },
+    "cumulative_solved_counts": {
+      "1": 50,
+      "2": 50,
+      "3": 50
+    },
+    "cumulative_success_rates": {
+      "1": 100.0,
+      "2": 100.0,
+      "3": 100.0
+    },
+    "cycles_prevented": 0,
+    "trajectories": [
+      {
+        "problem": "loopinvgen_nikj_25",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 40)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_02",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 17)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_11",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (= y 1) (= k 55)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_12",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (= y 1) (= k 60)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_03",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 60)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_09",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_19",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_20",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (= y 1) (= k 100)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_28",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 2800)) (and (= x 0) (<= y 2800))))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_19",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 380)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_28",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 38)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_23",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 461))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_22",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 2200)) (and (= x 0) (<= y 2200))))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_27",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 42)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_01",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 16)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_12",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 22)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_10",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 201))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_17",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 32)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_20",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 401))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_30",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 40)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_17",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 340)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_30",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 600)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_08",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 18)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_24",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 39)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_24",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 480)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_11",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 221))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_02",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (= y 1) (= k 10)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_05",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 20)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_26",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 521))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_09",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 19)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_11",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 220)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_05",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 500))\n      (and (= x 0) (<= y 500))))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_06",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 16)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_06",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 121))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_dec_27",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (and (>= x 0) (>= y 0) (= (+ x y) 540)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_27",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_12",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 27)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_07",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 141))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_10",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 1000))\n      (and (= x 0) (<= y 1000))))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_trex_13",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int) (k Int)) Bool (and (>= x 1) (= y 1) (= k 65)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_15",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 301))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_13",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 261))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_11",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 21)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_30",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_nikj_14",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and (>= i 0) (<= i n) (= k i) (= j i) (= n 29)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_eq_step_08",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (= x y))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_cggmp_14",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (j Int)) Bool (= (+ (* 2 j) i) 281))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_bound_04",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((x Int) (y Int)) Bool (or (and (= x 1) (< y 400))\n      (and (= x 0) (<= y 400))))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_25",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 35)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      },
+      {
+        "problem": "loopinvgen_sum_29",
+        "solved": true,
+        "solved_at_turn": 1,
+        "total_turns": 1,
+        "history": [
+          {
+            "turn": 1,
+            "candidate_inv": "(define-fun InvF ((i Int) (s Int) (n Int)) Bool (and (>= i 0) (<= i n) (= s i) (= n 39)))",
+            "is_valid": true,
+            "failed_rule": null,
+            "error_details": null,
+            "counterexample_str": "N/A"
+          }
+        ]
+      }
+    ]
+  }
+}

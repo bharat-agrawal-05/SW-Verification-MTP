@@ -6,12 +6,14 @@ from llm.base import BaseLLMClient
 
 
 class OpenAICompatibleClient(BaseLLMClient):
-    """Client for any OpenAI-compatible API endpoint (such as http://localhost:3000/v1 with model 'bharat-ai')."""
+    """Client for any OpenAI-compatible API endpoint (such as http://localhost:20128/v1 with model 'KsAI' or http://localhost:3000/v1 with model 'bharat-ai')."""
 
     def __init__(
         self,
         model_name: str = "bharat-ai",
         base_url: str = "http://localhost:3000/v1",
+        # model_name: str = "KsAI",
+        # base_url: str = "http://localhost:20128/v1",
         api_key: str = "EMPTY",
         timeout: int = 120,
         **kwargs

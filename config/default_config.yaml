@@ -4,10 +4,12 @@ llm:
   # Provider options: "openai" (OpenAI/vLLM/custom server), "ollama", "huggingface", "mock"
   provider: "openai"
   model: "bharat-ai"
+  # model: "KsAI"
   
-  # OpenAI-compatible API settings (e.g. for custom server at http://localhost:3000/v1)
+  # OpenAI-compatible API settings (e.g. for custom server at http://localhost:20128/v1 with model 'KsAI' or http://localhost:3000/v1 with model 'bharat-ai')
   openai:
     base_url: "http://localhost:3000/v1"
+    # base_url: "http://localhost:20128/v1"
     api_key: "EMPTY"
     timeout: 120
 
