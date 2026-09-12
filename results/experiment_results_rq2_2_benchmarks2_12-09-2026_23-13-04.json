@@ -1,0 +1,1133 @@
+{
+  "rq2_2": {
+    "num_problems": 20,
+    "attempted_invariants": 40,
+    "single_turn_successful_repairs": 10,
+    "single_turn_success_rate_percent": 25.0,
+    "multi_turn_successful_repairs": 24,
+    "multi_turn_success_rate_percent": 60.0,
+    "trajectories": [
+      {
+        "problem": "jmbl_hola_add",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool (and (= x y) (<= x n)))",
+            "counterexample_given": "x = 0, y = 0, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool (and (= x y) (<= x n)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool (and (= (+ x y) n) (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 1, y = 0, n = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "jmbl_hola_add",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool (and (>= y 0) (>= x 0) (>= n 0)))",
+            "counterexample_given": "x = 0, y = 0, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool (and (>= y 0) (>= x 0) (>= n 0)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int)) Bool (and (>= y 0) (>= x 0) (>= n 0) (= (+ x y) n)))",
+            "counterexample_given": "x = 0, y = 0, n = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "jmbl_sum3",
+        "initial_inv": "(define-fun InvF ((x Int) (sn Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (sn Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (sn Int)) Bool (= sn x))",
+            "counterexample_given": "x = 0, sn = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "jmbl_sum3",
+        "initial_inv": "(define-fun InvF ((x Int) (sn Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (sn Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (sn Int)) Bool (= sn x))",
+            "counterexample_given": "x = 0, sn = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "poly1",
+        "initial_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and (= c (+ (- i i0) (- j j0))) (>= i i0) (>= j j0)))",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and (= c (+ (- i i0) (- j j0))) (>= i i0) (>= j j0)))",
+            "repaired_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and\n    (= c (+ (- i i0) (- j j0)))\n    (>= i i0)\n    (<= i an)\n    (>= j j0)\n    (<= j bn)\n    (<= i0 an)\n    (<= j0 bn)\n  ))",
+            "counterexample_given": "c = 1, i = 2, j = 0, i0 = 1, j0 = 0, an = 0, bn = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and\n    (= c (+ (- i i0) (- j j0)))\n    (>= i i0)\n    (<= i an)\n    (>= j j0)\n    (<= j bn)\n    (<= i0 an)\n    (<= j0 bn)\n  ))",
+            "repaired_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and\n    (= c (+ (- i i0) (- j j0)))\n    (>= i i0)\n    (>= j j0)\n  ))",
+            "counterexample_given": "c = 0, i = 0, j = 1, i0 = 0, j0 = 1, an = 0, bn = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and\n    (= c (+ (- i i0) (- j j0)))\n    (>= i i0)\n    (>= j j0)\n  ))",
+            "repaired_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and\n    (= c (+ (- i i0) (- j j0)))\n    (>= i i0)\n    (>= j j0)\n    (<= i an)\n    (<= j bn)\n  ))",
+            "counterexample_given": "c = 1, i = 0, j = 1, i0 = 0, j0 = 0, an = 0, bn = -1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "poly1",
+        "initial_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool true)",
+            "counterexample_given": "c = 0, i = 0, j = 0, i0 = 0, j0 = 0, an = 0, bn = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and (>= i 0)\n       (= an (* i j0))\n       (= j j0)\n       (= bn (- i0 i))\n       (<= i i0)))",
+            "counterexample_given": "c = 1, i = 0, j = 1, i0 = 1, j0 = 1, an = 0, bn = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and (>= i 0)\n       (= an (* i j0))\n       (= j j0)\n       (= bn (- i0 i))\n       (<= i i0)))",
+            "repaired_inv": "(define-fun InvF ((c Int) (i Int) (j Int) (i0 Int) (j0 Int) (an Int) (bn Int)) Bool (and (= an (* i j0))\n       (= j j0)\n       (= bn (- i0 i))\n       (<= i i0)))",
+            "counterexample_given": "c = 0, i = -1, j = 0, i0 = -1, j0 = 0, an = 0, bn = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "fig3",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (and (= x y) (= lock 1)) (and (= (+ x 1) y) (= lock 0))))",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (and (= x y) (= lock 1)) (and (= (+ x 1) y) (= lock 0))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (and (= x y) (= lock 0)) (= lock 1)))",
+            "counterexample_given": "x = -1, y = 0, lock = 0, x! = 0, y! = 2, lock! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (and (= x y) (= lock 0)) (= lock 1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (= lock 0) (and (= x y) (= lock 1))))",
+            "counterexample_given": "x = 0, y = 1, lock = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (= lock 0) (and (= x y) (= lock 1))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (and (= x y) (or (= lock 0) (= lock 1))))",
+            "counterexample_given": "x = 1, y = 0, lock = 0, x! = 0, y! = 1, lock! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "fig3",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (=> (= lock 1) (= x y)))",
+            "counterexample_given": "x = 0, y = 0, lock = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (=> (= lock 1) (= x y)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (and (= lock 0) (= x y))\n      (and (= lock 1) (= (+ x 1) y))))",
+            "counterexample_given": "x = 1, y = 0, lock = 2, x! = 0, y! = 1, lock! = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (and (= lock 0) (= x y))\n      (and (= lock 1) (= (+ x 1) y))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (lock Int)) Bool (or (and (= lock 0) (= x y))\n      (and (= lock 1) (or (= x y) (= (+ x 1) y)))))",
+            "counterexample_given": "x = 0, y = 0, lock = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "35_conf5",
+        "initial_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool (and (= conf_0 conf_0_0) (= conf_1 conf_1_0) (= conf_2 conf_2_0) (= conf_0_0 6) (= conf_1_0 8) (= conf_2_0 6) (>= c 0)))",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool (and (= conf_0 conf_0_0) (= conf_1 conf_1_0) (= conf_2 conf_2_0) (= conf_0_0 6) (= conf_1_0 8) (= conf_2_0 6) (>= c 0)))",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool (and\n    (= conf_0 conf_0_0)\n    (= conf_2 conf_2_0)\n    (= conf_0_0 6)\n    (= conf_2_0 6)\n    (= conf_1 8)\n    (>= c 0)\n  ))",
+            "counterexample_given": "c = 0, conf_0 = 6, conf_1 = 8, conf_2 = 6, conf_3 = 0, conf_4 = 7, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 0, c_3 = 41, c_4 = 41, c_5 = 1, conf_0_0 = 6, conf_1_0 = 8, conf_2_0 = 6, conf_3_0 = 0, conf_3_1 = 0, conf_3_2 = 317, conf_3_3 = 318, conf_4_0 = 0, conf_4_1 = 7, conf_4_2 = 8, conf_4_3 = 6, c! = 0, conf_0! = 6, conf_1! = 8, conf_2! = 6, conf_3! = 0, conf_4! = 7, tmp! = 0, c_0! = 0, c_1! = 0, c_2! = 0, c_3! = 0, c_4! = 0, c_5! = 0, conf_0_0! = 6, conf_1_0! = 9, conf_2_0! = 6, conf_3_0! = 0, conf_3_1! = 0, conf_3_2! = 0, conf_3_3! = 0, conf_4_0! = 0, conf_4_1! = 0, conf_4_2! = 0, conf_4_3! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool (and\n    (= conf_0 conf_0_0)\n    (= conf_2 conf_2_0)\n    (= conf_0_0 6)\n    (= conf_2_0 6)\n    (= conf_1 8)\n    (>= c 0)\n  ))",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool (and\n    (= conf_0 6)\n    (= conf_1 8)\n    (= conf_2 6)\n    (>= c 0)\n    (<= c 40)\n  ))",
+            "counterexample_given": "c = 1, conf_0 = 6, conf_1 = 8, conf_2 = 6, conf_3 = 318, conf_4 = 0, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 1, c_3 = 2, c_4 = 2, c_5 = 1, conf_0_0 = 6, conf_1_0 = 8, conf_2_0 = 6, conf_3_0 = 0, conf_3_1 = 318, conf_3_2 = 317, conf_3_3 = 317, conf_4_0 = 0, conf_4_1 = 0, conf_4_2 = 0, conf_4_3 = 6, c! = 2, conf_0! = 6, conf_1! = 8, conf_2! = 6, conf_3! = 317, conf_4! = 0, tmp! = 0, c_0! = 0, c_1! = 0, c_2! = 0, c_3! = 0, c_4! = 0, c_5! = 0, conf_0_0! = 6, conf_1_0! = 0, conf_2_0! = 7, conf_3_0! = 0, conf_3_1! = 0, conf_3_2! = 0, conf_3_3! = 0, conf_4_0! = 0, conf_4_1! = 0, conf_4_2! = 0, conf_4_3! = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "35_conf5",
+        "initial_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_3_1 Int) (conf_3_2 Int) (conf_3_3 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int)) Bool (and (>= c 0) (<= c 40)))",
+            "counterexample_given": "c = 0, conf_0 = 6, conf_1 = 8, conf_2 = 6, conf_3 = 6, conf_4 = 4, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 0, c_3 = 0, c_4 = 0, c_5 = 0, conf_0_0 = 6, conf_1_0 = 8, conf_2_0 = 6, conf_3_0 = 6, conf_3_1 = 0, conf_3_2 = 0, conf_3_3 = 0, conf_4_0 = 4, conf_4_1 = 0, conf_4_2 = 0, conf_4_3 = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "29_conf1",
+        "initial_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (and (>= x 0) (or (<= x n) (= x 0))))",
+            "counterexample_given": "conf_0 = 9, n = 0, x = 0, conf_0_0 = 9, conf_0_1 = 0, conf_0_2 = 0, n_0 = 0, x_0 = 0, x_1 = 0, x_2 = 0, x_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (and (>= x 0) (or (<= x n) (= x 0))))",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (or (= x n) (and (>= x 0) (<= x n))))",
+            "counterexample_given": "conf_0 = 9, n = -1, x = -1, conf_0_0 = 9, conf_0_1 = 0, conf_0_2 = 0, n_0 = -1, x_0 = 0, x_1 = -1, x_2 = 0, x_3 = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "29_conf1",
+        "initial_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (and (>= x_2 0) (or (<= x_2 n_0) (<= n_0 0))))",
+            "counterexample_given": "conf_0 = 9, n = 0, x = 0, conf_0_0 = 9, conf_0_1 = 0, conf_0_2 = 0, n_0 = 0, x_0 = 0, x_1 = 0, x_2 = 0, x_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (and (>= x_2 0) (or (<= x_2 n_0) (<= n_0 0))))",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (and (>= x_2 0) (or (<= x_2 (+ n_0 1)) (<= n_0 0))))",
+            "counterexample_given": "conf_0 = 9, n = 1, x = 1, conf_0_0 = 9, conf_0_1 = 0, conf_0_2 = 0, n_0 = 1, x_0 = 0, x_1 = 1, x_2 = 2, x_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (and (>= x_2 0) (or (<= x_2 (+ n_0 1)) (<= n_0 0))))",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (n Int) (x Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (n_0 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int)) Bool (>= x_2 0))",
+            "counterexample_given": "conf_0 = 9, n = 1, x = 1, conf_0_0 = 9, conf_0_1 = 0, conf_0_2 = 0, n_0 = 1, x_0 = 0, x_1 = 1, x_2 = 3, x_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "inc_vars",
+        "initial_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (and (<= 0 x) (<= x n)))",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (and (<= 0 x) (<= x n)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (and (= v1 x) (= v2 x) (= v3 x) (<= 0 x) (or (<= x n) (<= n 0))))",
+            "counterexample_given": "x = 0, n = -1, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (and (= v1 x) (= v2 x) (= v3 x) (<= 0 x) (or (<= x n) (<= n 0))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (or (<= n 0) (and (= v1 x) (= v2 x) (= v3 x) (<= 0 x) (<= x n))))",
+            "counterexample_given": "x = 0, n = -1, v1 = 1, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (or (<= n 0) (and (= v1 x) (= v2 x) (= v3 x) (<= 0 x) (<= x n))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (or (= x 0) (and (<= 0 x) (<= x n))))",
+            "counterexample_given": "x = 0, n = 1, v1 = 1, v2 = 0, v3 = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "inc_vars",
+        "initial_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (and (= v1 x) (= v2 x) (= v3 x) (>= x 0) (or (< n 0) (<= x n))))",
+            "counterexample_given": "x = 0, n = 0, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (and (= v1 x) (= v2 x) (= v3 x) (>= x 0) (or (< n 0) (<= x n))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (and (>= x 0) (or (< n 0) (<= x n))))",
+            "counterexample_given": "x = 0, n = 0, v1 = 0, v2 = 0, v3 = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "inc_simp",
+        "initial_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x n))",
+            "counterexample_given": "x = 0, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x n))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x (+ n 1)))",
+            "counterexample_given": "x = 0, n = -1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x (+ n 1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (or (<= x n) (<= x 0)))",
+            "counterexample_given": "x = 0, n = -2",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "inc_simp",
+        "initial_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x n))",
+            "counterexample_given": "x = 0, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x n))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (or (<= x n) (= x 0)))",
+            "counterexample_given": "x = 0, n = -1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "83_conf1",
+        "initial_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (>= y 0) (or (< x 0) (> y 0))))",
+            "counterexample_given": "conf_0 = 1, x = -5000, y = 0, conf_0_0 = 1, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, x_0 = 0, x_1 = -5000, x_2 = 0, x_3 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (>= y 0) (or (< x 0) (> y 0))))",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (or (< x 0) (> y 0)))",
+            "counterexample_given": "conf_0 = 1, x = -5000, y = -1, conf_0_0 = 1, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, x_0 = 0, x_1 = -5000, x_2 = 0, x_3 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "83_conf1",
+        "initial_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (>= y 0))",
+            "counterexample_given": "conf_0 = 1, x = -5000, y = 0, conf_0_0 = 1, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, x_0 = 0, x_1 = -5000, x_2 = 0, x_3 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (>= y 0))",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool true)",
+            "counterexample_given": "conf_0 = 1, x = -5000, y = -1, conf_0_0 = 1, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, x_0 = 0, x_1 = -5000, x_2 = 0, x_3 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((conf_0 Int) (x Int) (y Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (x_0 Int) (x_1 Int) (x_2 Int) (x_3 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and\n    (= x_3 y_2)\n    (= x_2 y_1)\n    (= x_1 y_0)\n    (= x_0 x)\n    (= y_0 y)\n    (>= conf_0_3 0)\n  ))",
+            "counterexample_given": "conf_0 = 0, x = 0, y = 0, conf_0_0 = 0, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, x_0 = 0, x_1 = 0, x_2 = 0, x_3 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "125_conf5",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= conf_0 4) (= conf_1 1) (= conf_2 3) (= conf_3 7) (= i i_1) (= j j_1) (= (- x y) (- i_1 j_1))))",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= conf_0 4) (= conf_1 1) (= conf_2 3) (= conf_3 7) (= i i_1) (= j j_1) (= (- x y) (- i_1 j_1))))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and\n    (= conf_0 4)\n    (= conf_1 1)\n    (= conf_2 3)\n    (= conf_3 7)\n    (= (- x y) (- i j))\n  ))",
+            "counterexample_given": "i = -2, j = 0, conf_0 = 4, conf_1 = 1, conf_2 = 3, conf_3 = 7, conf_4 = 0, x = -1, y = 1, i_0 = 0, i_1 = -2, j_0 = 0, j_1 = 0, conf_0_0 = 0, conf_0_1 = 4, conf_0_2 = 4, conf_1_0 = 1, conf_2_0 = 3, conf_3_0 = 7, conf_4_0 = 0, conf_4_1 = 0, conf_4_2 = 678, x_0 = 0, x_1 = -1, x_2 = -2, y_0 = 0, y_1 = 1, y_2 = 0, i! = -2, j! = 0, conf_0! = 4, conf_1! = 1, conf_2! = 3, conf_3! = 7, conf_4! = 678, x! = -2, y! = 0, i_0! = 0, i_1! = -3, j_0! = 0, j_1! = -2, conf_0_0! = 0, conf_0_1! = 0, conf_0_2! = 0, conf_1_0! = 0, conf_2_0! = 0, conf_3_0! = 0, conf_4_0! = 0, conf_4_1! = 0, conf_4_2! = 0, x_0! = 0, x_1! = 0, x_2! = 0, y_0! = 0, y_1! = 0, y_2! = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "125_conf5",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= x y) (= i j)))",
+            "counterexample_given": "i = 0, j = 0, conf_0 = 4, conf_1 = 1, conf_2 = 3, conf_3 = 7, conf_4 = 1, x = 0, y = 0, i_0 = 0, i_1 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 4, conf_0_1 = 0, conf_0_2 = 0, conf_1_0 = 1, conf_2_0 = 3, conf_3_0 = 7, conf_4_0 = 1, conf_4_1 = 0, conf_4_2 = 0, x_0 = 0, x_1 = 0, x_2 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= x y) (= i j)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (= (- x i) (- y j)))",
+            "counterexample_given": "i = 1, j = 0, conf_0 = 4, conf_1 = 1, conf_2 = 3, conf_3 = 7, conf_4 = 1, x = 1, y = 0, i_0 = 0, i_1 = 1, j_0 = 0, j_1 = 0, conf_0_0 = 4, conf_0_1 = 0, conf_0_2 = 0, conf_1_0 = 1, conf_2_0 = 3, conf_3_0 = 7, conf_4_0 = 1, conf_4_1 = 0, conf_4_2 = 0, x_0 = 1, x_1 = 0, x_2 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "dec_simpl",
+        "initial_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (and (>= x 0) (<= x n)))",
+            "counterexample_given": "x = 0, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool (and (>= x 0) (<= x n)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (or (= x n) (and (>= x 0) (<= x n))))",
+            "counterexample_given": "x = -1, n = -1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "dec_simpl",
+        "initial_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (and (>= x 0) (<= x n)))",
+            "counterexample_given": "x = 0, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool (and (>= x 0) (<= x n)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x n))",
+            "counterexample_given": "x = -1, n = -1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (n Int)) Bool (<= x n))",
+            "repaired_inv": "(define-fun InvF ((x Int) (n Int)) Bool (>= x n))",
+            "counterexample_given": "x = -1, n = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "sendmail-close-angle_true-unreach-call_true-termination",
+        "initial_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool (and (<= 0 in) (<= 0 buf) (<= buf buflim)))",
+            "counterexample_given": "in = 0, inlen = 3, bufferlen = 2, buf = 0, buflim = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool (and (<= 0 in) (<= 0 buf) (<= buf buflim)))",
+            "repaired_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool (and (<= 0 in)\n       (<= 0 buf)\n       (<= buf buflim)\n       (= buflim (- bufferlen 2))))",
+            "counterexample_given": "in = 0, inlen = 0, bufferlen = 0, buf = 0, buflim = 1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "sendmail-close-angle_true-unreach-call_true-termination",
+        "initial_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((in Int) (inlen Int) (bufferlen Int) (buf Int) (buflim Int)) Bool (and\n    (<= 0 in)\n    (<= 0 buf)\n    (<= buf in)\n    (<= buf buflim)\n    (<= (+ buflim 2) bufferlen)\n  ))",
+            "counterexample_given": "in = 0, inlen = 3, bufferlen = 2, buf = 0, buflim = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "jmbl_cegar1_vars-new",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (<= (- x y) 2))",
+            "counterexample_given": "x = 0, y = 0, z1 = 0, z2 = 0, z3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (<= (- x y) 2))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (<= (- x y) 3))",
+            "counterexample_given": "x = 3, y = 0, z1 = 0, z2 = 0, z3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (<= (- x y) 3))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (<= (- y x) 0))",
+            "counterexample_given": "x = 4, y = 0, z1 = 0, z2 = 0, z3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "jmbl_cegar1_vars-new",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (and (>= x 0) (= x y)))",
+            "counterexample_given": "x = 0, y = 0, z1 = 0, z2 = 0, z3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (and (>= x 0) (= x y)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (and (>= x 0) (>= y 0) (<= (- x y) 2) (<= (- y x) 2)))",
+            "counterexample_given": "x = 1, y = 0, z1 = 0, z2 = 0, z3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (and (>= x 0) (>= y 0) (<= (- x y) 2) (<= (- y x) 2)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z1 Int) (z2 Int) (z3 Int)) Bool (and (>= x 0) (>= y 0)))",
+            "counterexample_given": "x = 0, y = 3, z1 = 0, z2 = 0, z3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "up_true-unreach-call_true-termination",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (= (+ k j) i))",
+            "counterexample_given": "n = 0, i = 0, k = 0, j = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "up_true-unreach-call_true-termination",
+        "initial_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((n Int) (i Int) (k Int) (j Int)) Bool (and\n    (= (+ k j) i)\n    (>= j 0)\n    (>= k 0)\n    (>= i 0)\n    (or (= j 0) (>= i n))\n  ))",
+            "counterexample_given": "n = 0, i = 0, k = 0, j = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "array_simp",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (and (>= x 0) (>= z y)))",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (and (>= x 0) (>= z y)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (and (>= x 0) (>= z (- y 1))))",
+            "counterexample_given": "x = 0, y = 0, z = -1, size = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (and (>= x 0) (>= z (- y 1))))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (and (>= x 0) (>= z -1)))",
+            "counterexample_given": "x = 0, y = 1, z = -1, size = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (and (>= x 0) (>= z -1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (>= x 0))",
+            "counterexample_given": "x = 0, y = 0, z = -2, size = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          }
+        ]
+      },
+      {
+        "problem": "array_simp",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (= x (+ y z)))",
+            "counterexample_given": "x = 0, y = 0, z = 0, size = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (= x (+ y z)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (>= x 0))",
+            "counterexample_given": "x = 0, y = 1, z = 0, size = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (>= x 0))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (z Int) (size Int)) Bool (and (= x y) (= y z) (>= x 0)))",
+            "counterexample_given": "x = 1, y = 1, z = 0, size = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "ex14_vars",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (= x (+ y 1)))",
+            "counterexample_given": "x = 1, y = 0, n = 0, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (= x (+ y 1)))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (= x y))",
+            "counterexample_given": "x = 1, y = 1, n = 0, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (= x y))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (>= y x))",
+            "counterexample_given": "x = 1, y = 2, n = 0, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "ex14_vars",
+        "initial_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool true)",
+            "counterexample_given": "x = 1, y = 0, n = 0, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool true)",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (= x y))",
+            "counterexample_given": "x = 0, y = 0, n = 0, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (= x y))",
+            "repaired_inv": "(define-fun InvF ((x Int) (y Int) (n Int) (v1 Int) (v2 Int) (v3 Int)) Bool (= y (+ x 1)))",
+            "counterexample_given": "x = 1, y = 2, n = 0, v1 = 0, v2 = 0, v3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "44_conf5",
+        "initial_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and (<= c n) (>= c 0)))",
+            "counterexample_given": "c = 0, conf_0 = 1, conf_1 = 5, conf_2 = 9, conf_3 = 4, conf_4 = 5, n = 1, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 0, c_3 = 0, c_4 = 0, c_5 = 0, conf_0_0 = 1, conf_1_0 = 5, conf_2_0 = 9, conf_3_0 = 4, conf_4_0 = 5, conf_4_1 = 0, conf_4_2 = 0, conf_4_3 = 0, conf_4_4 = 0, n_0 = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and (<= c n) (>= c 0)))",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and (<= c (+ n 1)) (>= c 0)))",
+            "counterexample_given": "c = 0, conf_0 = 0, conf_1 = 0, conf_2 = 0, conf_3 = 0, conf_4 = 273, n = 0, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 0, c_3 = 1, c_4 = 1, c_5 = 1, conf_0_0 = 0, conf_1_0 = 0, conf_2_0 = 0, conf_3_0 = 0, conf_4_0 = 0, conf_4_1 = 273, conf_4_2 = 631, conf_4_3 = 272, conf_4_4 = 272, n_0 = 0, c! = 1, conf_0! = 0, conf_1! = 0, conf_2! = 0, conf_3! = 0, conf_4! = 272, n! = 0, tmp! = 0, c_0! = 0, c_1! = 0, c_2! = 0, c_3! = 0, c_4! = 0, c_5! = 0, conf_0_0! = 0, conf_1_0! = 0, conf_2_0! = 0, conf_3_0! = 0, conf_4_0! = 0, conf_4_1! = 0, conf_4_2! = 0, conf_4_3! = 0, conf_4_4! = 0, n_0! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and (<= c (+ n 1)) (>= c 0)))",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and (<= c (+ n_0 1)) (>= c 0)))",
+            "counterexample_given": "c = 0, conf_0 = 0, conf_1 = 359, conf_2 = 0, conf_3 = 0, conf_4 = 631, n = -1, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 0, c_3 = 1, c_4 = 1, c_5 = 1, conf_0_0 = 0, conf_1_0 = 359, conf_2_0 = 0, conf_3_0 = 0, conf_4_0 = 0, conf_4_1 = 631, conf_4_2 = 631, conf_4_3 = 631, conf_4_4 = 631, n_0 = -1, c! = 1, conf_0! = 0, conf_1! = 359, conf_2! = 0, conf_3! = 0, conf_4! = 631, n! = -1, tmp! = 0, c_0! = 0, c_1! = 0, c_2! = 0, c_3! = 0, c_4! = 0, c_5! = 0, conf_0_0! = 0, conf_1_0! = 0, conf_2_0! = 0, conf_3_0! = 0, conf_4_0! = 0, conf_4_1! = 0, conf_4_2! = 0, conf_4_3! = 0, conf_4_4! = 0, n_0! = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          }
+        ]
+      },
+      {
+        "problem": "44_conf5",
+        "initial_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 2,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and\n    (<= 0 c)\n    (<= c n_0)\n    (= conf_0_0 conf_0)\n    (= conf_1_0 conf_1)\n    (= conf_2_0 conf_2)\n    (= conf_3_0 conf_3)\n    (= conf_4_0 conf_4)\n    (= n_0 n)\n  ))",
+            "counterexample_given": "c = 0, conf_0 = 1, conf_1 = 5, conf_2 = 9, conf_3 = 4, conf_4 = 5, n = 1, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 0, c_3 = 0, c_4 = 0, c_5 = 0, conf_0_0 = 1, conf_1_0 = 5, conf_2_0 = 9, conf_3_0 = 4, conf_4_0 = 5, conf_4_1 = 0, conf_4_2 = 0, conf_4_3 = 0, conf_4_4 = 0, n_0 = 1",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R2"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and\n    (<= 0 c)\n    (<= c n_0)\n    (= conf_0_0 conf_0)\n    (= conf_1_0 conf_1)\n    (= conf_2_0 conf_2)\n    (= conf_3_0 conf_3)\n    (= conf_4_0 conf_4)\n    (= n_0 n)\n  ))",
+            "repaired_inv": "(define-fun InvF ((c Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (n Int) (tmp Int) (c_0 Int) (c_1 Int) (c_2 Int) (c_3 Int) (c_4 Int) (c_5 Int) (conf_0_0 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (conf_4_3 Int) (conf_4_4 Int) (n_0 Int)) Bool (and\n    (<= 0 c)\n    (<= c n)\n    (<= 1 n)\n  ))",
+            "counterexample_given": "c = 0, conf_0 = 0, conf_1 = 0, conf_2 = 0, conf_3 = 0, conf_4 = 631, n = 0, tmp = 0, c_0 = 0, c_1 = 0, c_2 = 0, c_3 = 0, c_4 = 0, c_5 = 1, conf_0_0 = 0, conf_1_0 = 0, conf_2_0 = 0, conf_3_0 = 0, conf_4_0 = 631, conf_4_1 = 631, conf_4_2 = 631, conf_4_3 = 630, conf_4_4 = 630, n_0 = 0, c! = 0, conf_0! = 0, conf_1! = 0, conf_2! = 0, conf_3! = 0, conf_4! = 631, n! = 0, tmp! = 0, c_0! = 0, c_1! = 0, c_2! = 0, c_3! = 0, c_4! = 0, c_5! = 0, conf_0_0! = 0, conf_1_0! = 0, conf_2_0! = 0, conf_3_0! = 0, conf_4_0! = 631, conf_4_1! = 0, conf_4_2! = 0, conf_4_3! = 0, conf_4_4! = 0, n_0! = -1",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "108_conf1",
+        "initial_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (and (>= k 0) (or (<= c 0) (and (<= k c) (or (<= k 0) (>= m a))))))",
+            "counterexample_given": "a = 0, c = 0, j = 0, conf_0 = 6, k = 0, m = 0, a_0 = 0, c_0 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 6, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, conf_0_4 = 0, k_0 = 0, k_1 = 0, k_2 = 0, k_3 = 0, m_0 = 0, m_1 = 0, m_2 = 0, m_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (and (>= k 0) (or (<= c 0) (and (<= k c) (or (<= k 0) (>= m a))))))",
+            "repaired_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (and (>= k 0) (or (<= k 0) (and (<= k c) (>= m a)))))",
+            "counterexample_given": "a = 1, c = 0, j = 0, conf_0 = 0, k = 1, m = 0, a_0 = 1, c_0 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 0, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, conf_0_4 = 0, k_0 = 0, k_1 = 0, k_2 = 1, k_3 = 0, m_0 = 0, m_1 = 0, m_2 = 0, m_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (and (>= k 0) (or (<= k 0) (and (<= k c) (>= m a)))))",
+            "repaired_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (and (>= k 0) (or (< k c) (>= m a))))",
+            "counterexample_given": "a = 1, c = 0, j = 0, conf_0 = 0, k = 0, m = 0, a_0 = 1, c_0 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 0, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, conf_0_4 = 0, k_0 = 0, k_1 = 0, k_2 = 0, k_3 = 0, m_0 = 0, m_1 = 0, m_2 = 0, m_3 = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "108_conf1",
+        "initial_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (or (<= k 0) (<= a m)))",
+            "counterexample_given": "a = 0, c = 0, j = 0, conf_0 = 6, k = 0, m = 0, a_0 = 0, c_0 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 6, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, conf_0_4 = 0, k_0 = 0, k_1 = 0, k_2 = 0, k_3 = 0, m_0 = 0, m_1 = 0, m_2 = 0, m_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (or (<= k 0) (<= a m)))",
+            "repaired_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (or (< c k) (<= a m)))",
+            "counterexample_given": "a = 1, c = 0, j = 0, conf_0 = 0, k = 0, m = 0, a_0 = 1, c_0 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 0, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, conf_0_4 = 0, k_0 = 0, k_1 = 0, k_2 = 0, k_3 = 0, m_0 = 0, m_1 = 0, m_2 = 0, m_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R3"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (or (< c k) (<= a m)))",
+            "repaired_inv": "(define-fun InvF ((a Int) (c Int) (j Int) (conf_0 Int) (k Int) (m Int) (a_0 Int) (c_0 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_0_3 Int) (conf_0_4 Int) (k_0 Int) (k_1 Int) (k_2 Int) (k_3 Int) (m_0 Int) (m_1 Int) (m_2 Int) (m_3 Int)) Bool (and (<= k c) (or (<= k 0) (<= a m))))",
+            "counterexample_given": "a = 1, c = -1, j = 0, conf_0 = 0, k = 0, m = 0, a_0 = 1, c_0 = -1, j_0 = 0, j_1 = 0, conf_0_0 = 0, conf_0_1 = 0, conf_0_2 = 0, conf_0_3 = 0, conf_0_4 = 0, k_0 = 0, k_1 = 0, k_2 = 0, k_3 = 0, m_0 = 0, m_1 = 0, m_2 = 0, m_3 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "124_conf5",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (= (- x y) (- i j)))",
+            "counterexample_given": "i = 0, j = 0, conf_0 = 4, conf_1 = 1, conf_2 = 3, conf_3 = 7, conf_4 = 1, x = 0, y = 0, i_0 = 0, i_1 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 4, conf_0_1 = 0, conf_0_2 = 0, conf_1_0 = 1, conf_2_0 = 3, conf_3_0 = 7, conf_4_0 = 1, conf_4_1 = 0, conf_4_2 = 0, x_0 = 0, x_1 = 0, x_2 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "124_conf5",
+        "initial_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+        "success": false,
+        "turns_taken": 3,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= i j) (= x y) (<= x i) (>= x 0)))",
+            "counterexample_given": "i = 0, j = 0, conf_0 = 4, conf_1 = 1, conf_2 = 3, conf_3 = 7, conf_4 = 1, x = 0, y = 0, i_0 = 0, i_1 = 0, j_0 = 0, j_1 = 0, conf_0_0 = 4, conf_0_1 = 0, conf_0_2 = 0, conf_1_0 = 1, conf_2_0 = 3, conf_3_0 = 7, conf_4_0 = 1, conf_4_1 = 0, conf_4_2 = 0, x_0 = 0, x_1 = 0, x_2 = 0, y_0 = 0, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 2,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= i j) (= x y) (<= x i) (>= x 0)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= x i) (= y j) (<= x j) (>= x 0)))",
+            "counterexample_given": "i = 0, j = 1, conf_0 = 4, conf_1 = 1, conf_2 = 3, conf_3 = 7, conf_4 = 1, x = 0, y = 1, i_0 = 0, i_1 = 0, j_0 = 0, j_1 = 1, conf_0_0 = 4, conf_0_1 = 0, conf_0_2 = 0, conf_1_0 = 1, conf_2_0 = 3, conf_3_0 = 7, conf_4_0 = 1, conf_4_1 = 0, conf_4_2 = 0, x_0 = 0, x_1 = 0, x_2 = 0, y_0 = 1, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          },
+          {
+            "turn": 3,
+            "previous_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= x i) (= y j) (<= x j) (>= x 0)))",
+            "repaired_inv": "(define-fun InvF ((i Int) (j Int) (conf_0 Int) (conf_1 Int) (conf_2 Int) (conf_3 Int) (conf_4 Int) (x Int) (y Int) (i_0 Int) (i_1 Int) (j_0 Int) (j_1 Int) (conf_0_0 Int) (conf_0_1 Int) (conf_0_2 Int) (conf_1_0 Int) (conf_2_0 Int) (conf_3_0 Int) (conf_4_0 Int) (conf_4_1 Int) (conf_4_2 Int) (x_0 Int) (x_1 Int) (x_2 Int) (y_0 Int) (y_1 Int) (y_2 Int)) Bool (and (= x i) (= y j) (<= x j)))",
+            "counterexample_given": "i = -1, j = -1, conf_0 = 4, conf_1 = 1, conf_2 = 3, conf_3 = 7, conf_4 = 1, x = -1, y = -1, i_0 = 0, i_1 = -1, j_0 = 0, j_1 = -1, conf_0_0 = 4, conf_0_1 = 0, conf_0_2 = 0, conf_1_0 = 1, conf_2_0 = 3, conf_3_0 = 7, conf_4_0 = 1, conf_4_1 = 0, conf_4_2 = 0, x_0 = -1, x_1 = 0, x_2 = 0, y_0 = -1, y_1 = 0, y_2 = 0",
+            "is_valid": false,
+            "is_cycle": false,
+            "failed_rule": "R1"
+          }
+        ]
+      },
+      {
+        "problem": "ex11",
+        "initial_inv": "(define-fun InvF ((c Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((c Int)) Bool (and (>= c 0) (<= c 4)))",
+            "counterexample_given": "c = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      },
+      {
+        "problem": "ex11",
+        "initial_inv": "(define-fun InvF ((c Int)) Bool false)",
+        "success": true,
+        "turns_taken": 1,
+        "history": [
+          {
+            "turn": 1,
+            "previous_inv": "(define-fun InvF ((c Int)) Bool false)",
+            "repaired_inv": "(define-fun InvF ((c Int)) Bool (and (>= c 0) (<= c 4)))",
+            "counterexample_given": "c = 0",
+            "is_valid": true,
+            "is_cycle": false,
+            "failed_rule": null
+          }
+        ]
+      }
+    ]
+  }
+}
