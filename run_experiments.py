@@ -79,6 +79,13 @@ def main():
         help="Number of problems to evaluate from benchmark"
     )
     parser.add_argument(
+        "--benchmark",
+        type=str,
+        default=None,
+        choices=["benchmarks","benchmarks2"],
+        help="Benchmark dataset to use (default: benchmarks)"
+    )
+    parser.add_argument(
         "--verify-invariant",
         type=str,
         default=None,
@@ -107,6 +114,9 @@ def main():
 
     if args.subset_size:
         config.setdefault("benchmarks", {})["subset_size"] = args.subset_size
+
+    if args.benchmark:
+        config.setdefault("benchmarks", {})["directory"] = args.benchmark
 
     k_samples = args.k or config.get("llm", {}).get("generation", {}).get("default_k", 50)
 

@@ -3,7 +3,8 @@
 import os
 import json
 import time
-from typing import Dict, Any, Optional
+from datetime import datetime
+from typing import Dict, Any
 from tabulate import tabulate
 
 from core.verifier import InvariantVerifier
@@ -32,7 +33,9 @@ class ExperimentRunner:
 
         b_cfg = config.get("benchmarks", {})
         self.loader = BenchmarkLoader(benchmark_dir=b_cfg.get("directory", "benchmarks"))
-        
+
+        self.benchmark_name = os.path.basename(b_cfg.get("directory", "benchmarks"))
+
         subset_size = b_cfg.get("subset_size", None)
         seed = b_cfg.get("random_seed", 42)
         self.problems = self.loader.load_problems(sample_size=subset_size, seed=seed)
@@ -189,7 +192,7 @@ class ExperimentRunner:
 
     def run(self, target_rq: str = "all", k_samples: int = 50):
         """Runs specified RQ or all RQs and writes output report."""
-        timestamp = int(time.time())
+        # timestamp = int(time.time())
         all_results = {}
 
         print(f"Loaded {len(self.problems)} benchmark problems.")
@@ -242,7 +245,8 @@ class ExperimentRunner:
             self.print_table_cegis(cegis_res)
 
         # Save JSON output
-        out_file = os.path.join(self.results_dir, f"experiment_results_{target_rq}_{timestamp}.json")
+        dt_str = datetime.now().strftime("%d-%m-%Y_%H-%M-%S")
+        out_file = os.path.join(self.results_dir, f"experiment_results_{target_rq}_{self.benchmark_name}_{dt_str}.json")
         with open(out_file, "w", encoding="utf-8") as f:
             json.dump(all_results, f, indent=2)
         print(f"\nSaved complete results to: {out_file}")

@@ -115,6 +115,16 @@ You can run individual Research Questions or execute the entire benchmark evalua
 python3 run_experiments.py --provider ollama --model qwen3.8:27b --rq all
 ```
 
+### Select Benchmark Dataset
+By default, experiments use the `benchmarks/` dataset directory. You can switch to an alternative benchmark set using the `--benchmark` flag:
+```bash
+# Use the default benchmark dataset (benchmarks/)
+python3 run_experiments.py --rq all
+
+# Use the alternative benchmark dataset (benchmarks2/)
+python3 run_experiments.py --rq all --benchmark benchmarks2
+```
+
 ### Run Specific Research Questions
 
 #### RQ1.1: Guiding Instructions (Domain Knowledge) vs Baseline
