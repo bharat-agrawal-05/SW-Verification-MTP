@@ -82,7 +82,6 @@ def main():
         "--benchmark",
         type=str,
         default=None,
-        choices=["benchmarks","benchmarks2"],
         help="Benchmark dataset to use (default: benchmarks)"
     )
     parser.add_argument(

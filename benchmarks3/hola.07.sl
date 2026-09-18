@@ -1,0 +1,19 @@
+(set-logic LIA)
+
+(synth-inv inv_fun ((x Int) (y Int) (i Int) (n Int)))
+
+(define-fun pre_fun ((x Int) (y Int) (i Int) (n Int)) Bool
+    (and (>= n 0) (and (= i 0) (and (= x 0) (= y 0)))))
+(define-fun trans_fun ((x Int) (y Int) (i Int) (n Int) (x! Int) (y! Int) (i! Int) (n! Int)) Bool
+    (and (= n! n) (and (< i n) (and (= i! (+ i 1)) (or (and (= x! (+ x 1)) (= y! (+ y 2))) (and (= x! (+ x 2)) (= y! (+ y 1))))))))
+(define-fun post_fun ((x Int) (y Int) (i Int) (n Int)) Bool
+    (or (< i n) (= (* 3 n) (+ x y))))
+
+;; Verified Ground Truth Inductive Invariant
+;; Source: NeuralInvariantRanker (Chakraborty et al.) -- verified positive invariant
+(define-fun inv_fun ((x Int) (y Int) (i Int) (n Int)) Bool (or (and (<= i n) (= (+ x y) (* 3 i))) (and (> i n) (= (+ x y) (* 3 n))) ))
+
+(inv-constraint inv_fun pre_fun trans_fun post_fun)
+
+(check-synth)
+
