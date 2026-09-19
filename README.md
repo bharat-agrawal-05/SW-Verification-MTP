@@ -41,6 +41,8 @@ mtp_agy/
 │   ├── rq2_1_repair_errors.py      # Invariant repair using error causes & details (Table IX)
 │   ├── rq2_2_repair_counterexamples.py # Invariant repair using Z3 counterexample values (Table X, Fig 12)
 │   └── runner.py                   # Master experiment runner & table formatter
+├── scripts/
+│   └── generate_cegis_comparison_csv.py # Compare CEGIS results with benchmark ground truth
 ├── benchmarks/                     # SyGuS/SMT2 loop invariant benchmark problems & loader
 ├── tests/                          # Full pytest unit & integration test suite
 ├── run_experiments.py              # Main CLI entrypoint
@@ -184,6 +186,37 @@ python3 run_experiments.py --rq cegis --subset-size 50 --max-turns 3
 TABLE XI: Enhanced Multi-Turn CEGIS with Cumulative Counterexample Memory
 | Model     | # Problems | Turn 0 (Init) | Turn 1 (+CE1) | Turn 2 (+CE2) | Turn 3 (+CE3) | Total Solved | Cycles Prevented |
 ```
+
+### CEGIS Quality Comparison
+
+Whenever a run includes Enhanced CEGIS (`--rq cegis`, `--rq rq3_cegis`, or `--rq all`),
+the runner automatically creates a comparison CSV after saving the JSON results.
+The CSV is written to `cegis_quality_comparison/` at the repository root and uses
+the same timestamped filename as the result JSON.
+
+Each row contains:
+
+- **Problem Name**
+- **Extra Clauses in Generated Result**: clauses present in the generated invariant but absent from the ground truth
+- **Missing Clauses in Generated Result**: clauses present in the ground truth but absent from the generated invariant
+- **Generated Result**: the complete verifier-valid invariant, or `NO_CORRECT_RESPONSE` when CEGIS did not solve the problem
+- **Ground Truth**: the complete verified invariant extracted from the benchmark `.sl` file
+
+`NONE` is used when a clause category is empty. The comparison normalizes equivalent
+forms such as reversed inequalities and inclusive bounds expressed using `<` plus `=`.
+For an `--rq all` run, only the `enhanced_cegis` section is used to create this CSV;
+the other research-question results remain in the JSON file.
+
+To regenerate a comparison manually:
+
+```bash
+python3 scripts/generate_cegis_comparison_csv.py \
+  results/experiment_results_cegis_benchmarks3_<timestamp>.json \
+  --benchmark-dir benchmarks3
+```
+
+The benchmark directory is passed explicitly by the runner so arbitrary benchmark
+directories are supported reliably.
 
 ---
 

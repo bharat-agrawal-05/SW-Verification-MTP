@@ -19,6 +19,7 @@ from experiments.rq1_5_integrated import run_rq1_5
 from experiments.rq2_1_repair_errors import run_rq2_1
 from experiments.rq2_2_repair_counterexamples import run_rq2_2
 from experiments.rq3_enhanced_cegis import run_enhanced_cegis
+from scripts.generate_cegis_comparison_csv import generate_csv as generate_cegis_comparison_csv
 
 
 class ExperimentRunner:
@@ -32,9 +33,10 @@ class ExperimentRunner:
         self.verifier = InvariantVerifier(timeout_ms=v_cfg.get("timeout_ms", 10000))
 
         b_cfg = config.get("benchmarks", {})
-        self.loader = BenchmarkLoader(benchmark_dir=b_cfg.get("directory", "benchmarks"))
+        self.benchmark_dir = b_cfg.get("directory", "benchmarks")
+        self.loader = BenchmarkLoader(benchmark_dir=self.benchmark_dir)
 
-        self.benchmark_name = os.path.basename(b_cfg.get("directory", "benchmarks"))
+        self.benchmark_name = os.path.basename(self.benchmark_dir)
 
         subset_size = b_cfg.get("subset_size", None)
         seed = b_cfg.get("random_seed", 42)
@@ -255,3 +257,9 @@ class ExperimentRunner:
         with open(out_file, "w", encoding="utf-8") as f:
             json.dump(all_results, f, indent=2)
         print(f"\nSaved complete results to: {out_file}")
+
+        if "enhanced_cegis" in all_results:
+            comparison_file = generate_cegis_comparison_csv(
+                out_file, benchmark_dir=self.benchmark_dir
+            )
+            print(f"Saved CEGIS quality comparison to: {comparison_file}")
