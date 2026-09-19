@@ -178,8 +178,9 @@ class PromptBuilder:
             rule = item.get("failed_rule", "Unknown")
             details = item.get("error_details", "")
             ce = item.get("counterexample_str", "N/A")
+            label = "Attempt 0 (Initial Synthesis)" if t == 0 else f"Attempt {t} (Repair Turn {t})"
             history_lines.append(
-                f"- Attempt {t}:\n"
+                f"- {label}:\n"
                 f"  Proposed: <code> {inv} </code>\n"
                 f"  Failed Rule: {rule} ({details})\n"
                 f"  Counterexample State: `{ce}`"

@@ -173,24 +173,29 @@ class ExperimentRunner:
     def print_table_cegis(self, cegis_res: Dict[str, Any]):
         """Prints formatted Table XI (Enhanced Multi-Turn CEGIS)."""
         c_rates = cegis_res["cumulative_success_rates"]
-        table = [
-            [
-                self.llm.model_name,
-                cegis_res["num_problems"],
-                f"{c_rates.get(1, 0.0):.1f}%",
-                f"{c_rates.get(2, 0.0):.1f}%",
-                f"{c_rates.get(3, 0.0):.1f}%",
-                f"{cegis_res['total_success_rate_percent']:.1f}%",
-                cegis_res["cycles_prevented"]
-            ]
+        turn_keys = sorted(c_rates.keys())
+        turn_cols = []
+        for t in turn_keys:
+            if t == 0:
+                turn_cols.append("Turn 0 (Init)")
+            else:
+                turn_cols.append(f"Turn {t} (+CE{t})")
+
+        headers = ["Model", "# Problems"] + turn_cols + ["Total Solved", "Cycles Prevented"]
+        row = [
+            self.llm.model_name,
+            cegis_res["num_problems"],
+        ] + [f"{c_rates.get(t, 0.0):.1f}%" for t in turn_keys] + [
+            f"{cegis_res['total_success_rate_percent']:.1f}%",
+            cegis_res["cycles_prevented"]
         ]
-        headers = ["Model", "# Problems", "Turn 1 (Init)", "Turn 2 (+CE1)", "Turn 3 (+CE2)", "Total Solved", "Cycles Prevented"]
-        print("\n" + "="*85)
+        table = [row]
+        print("\n" + "="*95)
         print("TABLE XI (BEYOND PAPER): Enhanced Multi-Turn CEGIS with Cumulative Counterexample Memory")
-        print("="*85)
+        print("="*95)
         print(tabulate(table, headers=headers, tablefmt="github"))
 
-    def run(self, target_rq: str = "all", k_samples: int = 50):
+    def run(self, target_rq: str = "all", k_samples: int = 50, max_turns: int = 3):
         """Runs specified RQ or all RQs and writes output report."""
         # timestamp = int(time.time())
         all_results = {}
@@ -235,12 +240,12 @@ class ExperimentRunner:
             self.print_table_9(r2_1)
 
         if target_rq in ("rq2_2", "all"):
-            r2_2 = run_rq2_2(self.problems, self.llm, self.verifier)
+            r2_2 = run_rq2_2(self.problems, self.llm, self.verifier, max_repair_turns=max_turns)
             all_results["rq2_2"] = r2_2
             self.print_table_10(r2_2)
 
         if target_rq in ("cegis", "rq3_cegis", "all"):
-            cegis_res = run_enhanced_cegis(self.problems, self.llm, self.verifier, self.example_finder, max_turns=3)
+            cegis_res = run_enhanced_cegis(self.problems, self.llm, self.verifier, self.example_finder, max_turns=max_turns)
             all_results["enhanced_cegis"] = cegis_res
             self.print_table_cegis(cegis_res)
 

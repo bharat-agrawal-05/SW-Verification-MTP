@@ -171,9 +171,19 @@ python3 run_experiments.py --rq rq2_2
 
 #### Beyond the Paper: Enhanced Multi-Turn CEGIS Framework
 ```bash
-python3 run_experiments.py --rq cegis --subset-size 50
+# Run CEGIS with Turn 0 (Init) + 3 repair turns (outputs 4 columns: Turn 0, 1, 2, 3)
+python3 run_experiments.py --rq cegis --subset-size 50 --max-turns 3
 ```
-*Runs our Enhanced Counterexample-Guided Inductive Synthesis (CEGIS) loop combining Integrated Prompting with Cumulative Counterexample Memory and Generalization Directives (Table XI).*
+*Runs our Enhanced Counterexample-Guided Inductive Synthesis (CEGIS) loop combining Integrated Prompting with Cumulative Counterexample Memory and Generalization Directives (Table XI). When running with `--max-turns 3`, the results table displays 4 turn columns:*
+- **Turn 0 (Init)**: Initial zero-feedback synthesis via Integrated Prompting.
+- **Turn 1 (+CE1)**: First repair turn with Z3 counterexample feedback.
+- **Turn 2 (+CE2)**: Second repair turn with cumulative counterexample history.
+- **Turn 3 (+CE3)**: Third repair turn with cumulative counterexample history.
+
+```
+TABLE XI: Enhanced Multi-Turn CEGIS with Cumulative Counterexample Memory
+| Model     | # Problems | Turn 0 (Init) | Turn 1 (+CE1) | Turn 2 (+CE2) | Turn 3 (+CE3) | Total Solved | Cycles Prevented |
+```
 
 ---
 

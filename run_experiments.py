@@ -85,6 +85,12 @@ def main():
         help="Benchmark dataset to use (default: benchmarks)"
     )
     parser.add_argument(
+        "--max-turns",
+        type=int,
+        default=3,
+        help="Number of repair turns for CEGIS after initial generation (default: 3, resulting in 4 columns: Turn 0 [Init] + Turns 1..3)"
+    )
+    parser.add_argument(
         "--verify-invariant",
         type=str,
         default=None,
@@ -151,7 +157,7 @@ def main():
     print("=" * 80)
 
     runner = ExperimentRunner(config)
-    runner.run(target_rq=args.rq, k_samples=k_samples)
+    runner.run(target_rq=args.rq, k_samples=k_samples, max_turns=args.max_turns)
 
 
 if __name__ == "__main__":

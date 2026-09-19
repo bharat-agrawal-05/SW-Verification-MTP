@@ -24,13 +24,13 @@ def run_enhanced_cegis(
     Prevention.
     """
     total_problems = len(problems)
-    turn_solved_counts = {t: 0 for t in range(1, max_turns + 1)}
-    cumulative_solved_counts = {t: 0 for t in range(1, max_turns + 1)}
+    turn_solved_counts = {t: 0 for t in range(0, max_turns + 1)}
+    cumulative_solved_counts = {t: 0 for t in range(0, max_turns + 1)}
     total_solved = 0
     total_cycles_prevented = 0
     trajectories = []
 
-    print(f"\n[Enhanced CEGIS] Running Multi-Turn Cumulative Counterexample Synthesis on {total_problems} problems (max_turns={max_turns})...")
+    print(f"\n[Enhanced CEGIS] Running Multi-Turn Cumulative Counterexample Synthesis on {total_problems} problems (Turn 0 [Init] + {max_turns} repair turns)...")
 
     for prob in tqdm(problems, desc="Enhanced CEGIS Loop"):
         history = []
@@ -38,32 +38,32 @@ def run_enhanced_cegis(
         solved = False
         solved_turn = None
 
-        # Turn 1: Integrated Prompt (Domain Instructions + Syntactic Few-Shot Exemplar)
+        # Turn 0: Initial Synthesis via Integrated Prompt (Domain Instructions + Syntactic Few-Shot Exemplar)
         initial_prompt = PromptBuilder.build_rq1_5_integrated_prompt(
             prob, example_finder, n=2, metric="syntactic", example_type="EX_P"
         )
-        resp1 = llm.generate(initial_prompt, n_samples=1, temperature=temperature)[0]
-        cand1 = InvariantExtractor.extract_and_normalize(resp1, prob)
-        v_res1 = verifier.verify(prob, cand1)
-        visited_invariants.add(cand1)
+        resp0 = llm.generate(initial_prompt, n_samples=1, temperature=temperature)[0]
+        cand0 = InvariantExtractor.extract_and_normalize(resp0, prob)
+        v_res0 = verifier.verify(prob, cand0)
+        visited_invariants.add(cand0)
 
         history.append({
-            "turn": 1,
-            "candidate_inv": cand1,
-            "is_valid": v_res1.is_valid,
-            "failed_rule": v_res1.failed_rule,
-            "error_details": v_res1.error_details,
-            "counterexample_str": v_res1.counterexample_str or "N/A"
+            "turn": 0,
+            "candidate_inv": cand0,
+            "is_valid": v_res0.is_valid,
+            "failed_rule": v_res0.failed_rule,
+            "error_details": v_res0.error_details,
+            "counterexample_str": v_res0.counterexample_str or "N/A"
         })
 
-        if v_res1.is_valid:
+        if v_res0.is_valid:
             solved = True
-            solved_turn = 1
-            turn_solved_counts[1] += 1
+            solved_turn = 0
+            turn_solved_counts[0] += 1
             total_solved += 1
         else:
-            # Multi-turn CEGIS feedback loop
-            for turn in range(2, max_turns + 1):
+            # Multi-turn CEGIS repair loop: Turns 1 to max_turns
+            for turn in range(1, max_turns + 1):
                 feedback_prompt = PromptBuilder.build_cegis_feedback_prompt(
                     problem=prob,
                     example_finder=example_finder,
@@ -134,7 +134,7 @@ def run_enhanced_cegis(
         "cumulative_solved_counts": cumulative_solved_counts,
         "cumulative_success_rates": {
             t: (cumulative_solved_counts[t] / total_problems * 100.0) if total_problems > 0 else 0.0
-            for t in range(1, max_turns + 1)
+            for t in range(0, max_turns + 1)
         },
         "cycles_prevented": total_cycles_prevented,
         "trajectories": trajectories
