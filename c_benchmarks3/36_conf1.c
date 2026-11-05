@@ -1,0 +1,114 @@
+/*
+ * Generated C verification file from: 36_conf1.sl
+ * SMT-LIB Logic: LIA
+ * Suitable for static analysis via Frama-C (WP and Eva).
+ */
+
+#include <assert.h>
+#include <stdbool.h>
+
+/*@ assigns \nothing; */
+long long nondet_long(void);
+
+/*@ assigns \nothing; */
+_Bool nondet_bool(void);
+
+/*@
+  // ACSL Logic Predicates
+  predicate pre_f(integer c, integer conf_0, integer tmp, integer c_0, integer c_1, integer c_2, integer c_3, integer c_4, integer c_5, integer conf_0_0, integer conf_0_1, integer conf_0_2, integer conf_0_3, integer conf_0_4) =
+    ((c == c_1) && (conf_0 == conf_0_0) && (conf_0_0 == 4) && (c_1 == 0));
+
+  predicate trans_f(integer c, integer conf_0, integer tmp, integer c_0, integer c_1, integer c_2, integer c_3, integer c_4, integer c_5, integer conf_0_0, integer conf_0_1, integer conf_0_2, integer conf_0_3, integer conf_0_4, integer c_next, integer conf_0_next, integer tmp_next, integer c_0_next, integer c_1_next, integer c_2_next, integer c_3_next, integer c_4_next, integer c_5_next, integer conf_0_0_next, integer conf_0_1_next, integer conf_0_2_next, integer conf_0_3_next, integer conf_0_4_next) =
+    (((c_2 == c) && (conf_0_1 == conf_0) && (c_2 == c_next) && (conf_0_1 == conf_0_next) && (c == c_next) && (conf_0 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && !((c_2 == 40)) && (c_3 == (c_2 + 1)) && (conf_0_2 == 926) && (c_4 == c_3) && (conf_0_3 == conf_0_2) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && !(!((c_2 == 40))) && (c_4 == c_2) && (conf_0_3 == conf_0_1) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && (c_2 == 40) && (c_5 == 1) && (conf_0_4 == 317) && (c_4 == c_5) && (conf_0_3 == conf_0_4) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && !((c_2 == 40)) && (c_4 == c_2) && (conf_0_3 == conf_0_1) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)));
+
+  predicate post_f(integer c, integer conf_0, integer tmp, integer c_0, integer c_1, integer c_2, integer c_3, integer c_4, integer c_5, integer conf_0_0, integer conf_0_1, integer conf_0_2, integer conf_0_3, integer conf_0_4) =
+    (!(((c == c_2) && (conf_0 == conf_0_1))) || !((!((c_2 == 40)) && !((c_2 <= 40)))));
+
+  predicate inv_f(integer c, integer conf_0, integer tmp, integer c_0, integer c_1, integer c_2, integer c_3, integer c_4, integer c_5, integer conf_0_0, integer conf_0_1, integer conf_0_2, integer conf_0_3, integer conf_0_4) =
+    ((c >= 0) && (c <= 40) && ((c % 1) == 0));
+
+  @*/
+
+// Pure C helper functions (using 64-bit long long)
+static inline _Bool c_pre_f(long long c, long long conf_0, long long tmp, long long c_0, long long c_1, long long c_2, long long c_3, long long c_4, long long c_5, long long conf_0_0, long long conf_0_1, long long conf_0_2, long long conf_0_3, long long conf_0_4) {
+    return ((c == c_1) && (conf_0 == conf_0_0) && (conf_0_0 == 4) && (c_1 == 0));
+}
+
+static inline _Bool c_trans_f(long long c, long long conf_0, long long tmp, long long c_0, long long c_1, long long c_2, long long c_3, long long c_4, long long c_5, long long conf_0_0, long long conf_0_1, long long conf_0_2, long long conf_0_3, long long conf_0_4, long long c_next, long long conf_0_next, long long tmp_next, long long c_0_next, long long c_1_next, long long c_2_next, long long c_3_next, long long c_4_next, long long c_5_next, long long conf_0_0_next, long long conf_0_1_next, long long conf_0_2_next, long long conf_0_3_next, long long conf_0_4_next) {
+    return (((c_2 == c) && (conf_0_1 == conf_0) && (c_2 == c_next) && (conf_0_1 == conf_0_next) && (c == c_next) && (conf_0 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && !((c_2 == 40)) && (c_3 == (c_2 + 1)) && (conf_0_2 == 926) && (c_4 == c_3) && (conf_0_3 == conf_0_2) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && !(!((c_2 == 40))) && (c_4 == c_2) && (conf_0_3 == conf_0_1) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && (c_2 == 40) && (c_5 == 1) && (conf_0_4 == 317) && (c_4 == c_5) && (conf_0_3 == conf_0_4) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)) || ((c_2 == c) && (conf_0_1 == conf_0) && !((c_2 == 40)) && (c_4 == c_2) && (conf_0_3 == conf_0_1) && (c_4 == c_next) && (conf_0_3 == conf_0_next) && (tmp == tmp_next)));
+}
+
+static inline _Bool c_post_f(long long c, long long conf_0, long long tmp, long long c_0, long long c_1, long long c_2, long long c_3, long long c_4, long long c_5, long long conf_0_0, long long conf_0_1, long long conf_0_2, long long conf_0_3, long long conf_0_4) {
+    return (!(((c == c_2) && (conf_0 == conf_0_1))) || !((!((c_2 == 40)) && !((c_2 <= 40)))));
+}
+
+static inline _Bool c_inv_f(long long c, long long conf_0, long long tmp, long long c_0, long long c_1, long long c_2, long long c_3, long long c_4, long long c_5, long long conf_0_0, long long conf_0_1, long long conf_0_2, long long conf_0_3, long long conf_0_4) {
+    return ((c >= 0) && (c <= 40) && ((c % 1) == 0));
+}
+
+int main(void) {
+    // 1. Variable declarations & nondeterministic initialization
+    long long c = nondet_long();
+    long long conf_0 = nondet_long();
+    long long tmp = nondet_long();
+    long long c_0 = nondet_long();
+    long long c_1 = nondet_long();
+    long long c_2 = nondet_long();
+    long long c_3 = nondet_long();
+    long long c_4 = nondet_long();
+    long long c_5 = nondet_long();
+    long long conf_0_0 = nondet_long();
+    long long conf_0_1 = nondet_long();
+    long long conf_0_2 = nondet_long();
+    long long conf_0_3 = nondet_long();
+    long long conf_0_4 = nondet_long();
+
+    // 2. Precondition check (safe C guard instead of /*@ assume */)
+    if (!c_pre_f(c, conf_0, tmp, c_0, c_1, c_2, c_3, c_4, c_5, conf_0_0, conf_0_1, conf_0_2, conf_0_3, conf_0_4)) return 0;
+
+    // 3. Loop body with ACSL loop invariant
+    /*@
+      @ loop invariant inv_f(c, conf_0, tmp, c_0, c_1, c_2, c_3, c_4, c_5, conf_0_0, conf_0_1, conf_0_2, conf_0_3, conf_0_4);
+      @ loop assigns c, conf_0, tmp, c_0, c_1, c_2, c_3, c_4, c_5, conf_0_0, conf_0_1, conf_0_2, conf_0_3, conf_0_4;
+      @*/
+    while (1) {
+        long long c_next = nondet_long();
+        long long conf_0_next = nondet_long();
+        long long tmp_next = nondet_long();
+        long long c_0_next = nondet_long();
+        long long c_1_next = nondet_long();
+        long long c_2_next = nondet_long();
+        long long c_3_next = nondet_long();
+        long long c_4_next = nondet_long();
+        long long c_5_next = nondet_long();
+        long long conf_0_0_next = nondet_long();
+        long long conf_0_1_next = nondet_long();
+        long long conf_0_2_next = nondet_long();
+        long long conf_0_3_next = nondet_long();
+        long long conf_0_4_next = nondet_long();
+
+        if (!c_trans_f(c, conf_0, tmp, c_0, c_1, c_2, c_3, c_4, c_5, conf_0_0, conf_0_1, conf_0_2, conf_0_3, conf_0_4, c_next, conf_0_next, tmp_next, c_0_next, c_1_next, c_2_next, c_3_next, c_4_next, c_5_next, conf_0_0_next, conf_0_1_next, conf_0_2_next, conf_0_3_next, conf_0_4_next)) break;
+
+        // State updates
+        c = c_next;
+        conf_0 = conf_0_next;
+        tmp = tmp_next;
+        c_0 = c_0_next;
+        c_1 = c_1_next;
+        c_2 = c_2_next;
+        c_3 = c_3_next;
+        c_4 = c_4_next;
+        c_5 = c_5_next;
+        conf_0_0 = conf_0_0_next;
+        conf_0_1 = conf_0_1_next;
+        conf_0_2 = conf_0_2_next;
+        conf_0_3 = conf_0_3_next;
+        conf_0_4 = conf_0_4_next;
+    }
+
+    // 4. Post-condition assertion
+    assert(c_post_f(c, conf_0, tmp, c_0, c_1, c_2, c_3, c_4, c_5, conf_0_0, conf_0_1, conf_0_2, conf_0_3, conf_0_4));
+    /*@ assert post_f(c, conf_0, tmp, c_0, c_1, c_2, c_3, c_4, c_5, conf_0_0, conf_0_1, conf_0_2, conf_0_3, conf_0_4); */
+
+    return 0;
+}
